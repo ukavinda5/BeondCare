@@ -1,0 +1,55 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/Login_bg.svg);
+  background-size: cover;
+}
+.loginc {
+  position: absolute;
+  width: 100vw;
+  height: 90vh;
+
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logincon {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  height: 50vh;
+  background-color: rgb(68, 6, 126);
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: inset black;
+}
+.logincon h1 {
+  color: aliceblue;
+}
+.input {
+  outline: none;
+  color: aliceblue;
+  width: 20vw;
+  height: 4vh;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid white 2px;
+}
+
+.login_btn {
+  color: aliceblue;
+  padding: 15px 40px;
+  background-color: blueviolet;
+  text-align: center;
+  border-radius: 30px;
+}
+.login_btn:hover {
+  background-color: rgb(96, 10, 177);
+}
+
+.logincon a {
+  color: aliceblue;
+  text-decoration: none;
+}

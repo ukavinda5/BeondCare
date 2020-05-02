@@ -1,0 +1,70 @@
+.home {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/Home_bg.svg);
+  background-size: cover;
+}
+.nav {
+  width: 100%;
+  height: 8vh;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.nav ul {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.nav ul a {
+  text-decoration: none;
+  /* margin: 100px; */
+  color: aliceblue;
+  font-size: larger;
+  /* background-color: rgb(99, 23, 240); */
+}
+.nav-item {
+  width: 100px;
+  background-color: blueviolet;
+  border: solid 1px rgba(205, 123, 252, 0.664);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 30px;
+  text-align: center;
+}
+.nav-item:hover {
+  background-color: rgb(68, 6, 126);
+}
+
+.cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 35vh;
+  /* background-color: aqua; */
+  position: absolute;
+  left: 5vw;
+  top: 50vh;
+  tab-size: 11px;
+}
+.cont p {
+  text-align: center;
+}
+.btn1 {
+  padding: 10px;
+  background-color: blueviolet;
+  margin-top: 30px;
+  border-radius: 30px;
+}
+.btn1 a {
+  text-decoration: none;
+  color: aliceblue;
+}
+.btn1:hover {
+  background-color: rgb(68, 6, 126);
+}

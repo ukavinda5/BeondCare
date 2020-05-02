@@ -1,0 +1,134 @@
+.regprovider {
+  background-image: url(../images/Login_bg.svg);
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.rdev {
+  margin-top: 10vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: center;
+  /* background-color: aqua; */
+}
+.rinput {
+  outline: none;
+  border-style: groove;
+  margin-top: 10px;
+  width: 60vw;
+  height: 6vh;
+  border-color: blueviolet;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.rinpute {
+  outline: none;
+  border-style: groove;
+  margin-top: 10px;
+  width: 25.8vw;
+  height: 6vh;
+  border-color: blueviolet;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.rinpute2 {
+  margin-left: 4vw;
+  outline: none;
+  border-style: groove;
+  margin-top: 10px;
+  width: 30vw;
+  height: 6vh;
+  border-color: blueviolet;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.rinputk {
+  margin-right: 2vw;
+  outline: none;
+  border-style: groove;
+  margin-top: 10px;
+  width: 13vw;
+  height: 6vh;
+  border-color: blueviolet;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.rinputkm {
+  margin-right: 0vw;
+  outline: none;
+  border-style: groove;
+  margin-top: 10px;
+  width: 15vw;
+  height: 6vh;
+  border-color: blueviolet;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.rinputs {
+  margin-right: 0vw;
+  outline: none;
+  border-style: solid;
+  margin-top: 10px;
+  width: 15vw;
+  height: 6vh;
+  border: solid 2px;
+  border-color: rgb(100, 16, 179);
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+/* ..................................................bot.................................................... */
+
+.bot {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: space-between;
+  width: 60vw;
+  height: 10vh;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+.dlk-radio {
+  margin-top: 1vh;
+  display: flex;
+  justify-content: space-between;
+  height: 7vh;
+  padding: 7px;
+}
+.dlk-radio label {
+  color: aliceblue;
+  font-weight: 500;
+  width: 200px;
+  background-color: blueviolet;
+}
+.dlk-radio label input {
+  outline: none;
+  margin-right: 10px;
+}
+
+.dlk-radio label i {
+  margin-right: 10px;
+}
+
+.ro {
+  padding-left: 8px;
+}
+.dlk-radio input[type="radio"],
+.dlk-radio input[type="checkbox"] {
+  margin-left: -99999px;
+  display: none;
+}
+.dlk-radio input[type="radio"] + .fa,
+.dlk-radio input[type="checkbox"] + .fa {
+  opacity: 0.15;
+}
+.dlk-radio input[type="radio"]:checked + .fa,
+.dlk-radio input[type="checkbox"]:checked + .fa {
+  opacity: 1;
+}

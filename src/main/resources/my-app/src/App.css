@@ -1,0 +1,12 @@
+@import "./css/home.css";
+@import "./css/login.css";
+@import "./css/reg_home.css";
+@import "./css/reg_provider.css";
+@import "./css/profile.css";
+@import "./css/reg_success.css";
+@import "./css/admin.css";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
