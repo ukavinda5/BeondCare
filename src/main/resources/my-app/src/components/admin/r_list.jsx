@@ -8,4 +8,3 @@ class R_list extends Component {
 }
 
 export default R_list;
-<div className="r_list"></div>;

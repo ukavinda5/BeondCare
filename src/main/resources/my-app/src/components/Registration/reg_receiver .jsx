@@ -9,8 +9,9 @@ class Reg_receiver extends Component {
       Name: null,
       email: null,
       mobile: null,
-      address: null,
-      username: null,
+      address1: null,
+      address2: null,
+      address3: null,
       password: null,
       role: null,
     };
@@ -54,6 +55,7 @@ class Reg_receiver extends Component {
                 className="rinput"
                 type="text"
                 placeholder="Name"
+                name="Name"
                 value={this.setState.Name}
                 onChange={this.onChange}
               ></input>
@@ -62,6 +64,7 @@ class Reg_receiver extends Component {
               <input
                 className="rinput"
                 type="email"
+                name="email"
                 placeholder="Email Address"
                 value={this.setState.email}
                 onChange={this.onChange}
@@ -72,34 +75,48 @@ class Reg_receiver extends Component {
                 className="rinput"
                 type="tel"
                 placeholder="Mobile Number"
-                placeholder="Mobile Number"
+                name="mobile"
                 value={this.setState.mobile}
                 onChange={this.onChange}
               ></input>
             </label>
             <label>
               <input
-                className="rinput"
+                className="rinputA"
                 type="text"
                 placeholder="Address"
+                name="address1"
                 value={this.setState.address}
                 onChange={this.onChange}
               ></input>
             </label>
             <label>
               <input
-                className="rinput"
+                className="rinputA"
                 type="text"
-                placeholder="Username"
-                value={this.setState.username}
+                placeholder="Address"
+                name="address2"
+                value={this.setState.address}
                 onChange={this.onChange}
               ></input>
             </label>
             <label>
               <input
+                className="rinputAl "
+                type="text"
+                placeholder="Address"
+                name="address3"
+                value={this.setState.address}
+                onChange={this.onChange}
+              ></input>
+            </label>
+            
+            <label>
+              <input
                 className="rinput"
                 type="password"
                 placeholder="Password"
+                name="password"
                 value={this.setState.password}
                 onChange={this.onChange}
               ></input>

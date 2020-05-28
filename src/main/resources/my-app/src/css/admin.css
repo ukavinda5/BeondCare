@@ -6,7 +6,8 @@
 .anav {
   height: 100%;
   width: 20%;
-  background-color: blueviolet;
+  background-color: rgb(252, 240, 255);
+  border-right: solid 1.5px rgb(174, 117, 228);
 }
 .nav-links {
   margin-top: 200px;
@@ -20,7 +21,7 @@
   color: aliceblue;
   width: 100%;
   height: 10vh;
-  background-color: rgb(60, 10, 107);
+  background-color: blueviolet;
   margin-bottom: 30px;
 }
 .nav-itm:hover {
@@ -29,7 +30,10 @@
 }
 
 /* --------R_list--------------------- */
-
+.admin_container {
+  width: 100%;
+  height: 100%;
+}
 .r_list {
   width: 100%;
   height: 100%;
@@ -40,5 +44,117 @@
 .p_list {
   width: 100%;
   height: 100%;
-  background-color: rgb(18, 49, 223);
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search_bar {
+  height: 10vh;
+  width: 100%;
+  border: solid 1.5px rgb(167, 114, 216);
+  background-color: rgb(252, 240, 255);
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  border-radius: 20px;
+}
+.searchInput {
+  outline: none;
+  padding: 15px;
+  width: 15vw;
+  height: 5vh;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(198, 168, 206);
+  color: white;
+  font-weight: 500;
+}
+.s-btn {
+  width: 5vw;
+  height: 5vh;
+  background-color: blueviolet;
+  color: aliceblue;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+/* ---------radio------------ */
+.dlk-radios {
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  height: 7vh;
+  padding: 7px;
+}
+.dlk-radios label {
+  border-radius: 10px;
+  margin-right: 10px;
+  color: aliceblue;
+  font-weight: 500;
+  width: 200px;
+  background-color: blueviolet;
+}
+.dlk-radios label input {
+  outline: none;
+  margin-right: 10px;
+}
+
+.dlk-radios label i {
+  margin-right: 10px;
+}
+
+.ro {
+  padding-left: 8px;
+}
+.dlk-radios input[type="radio"],
+.dlk-radios input[type="checkbox"] {
+  margin-left: -99999px;
+  display: none;
+}
+.dlk-radios input[type="radio"] + .fa,
+.dlk-radios input[type="checkbox"] + .fa {
+  opacity: 0.15;
+}
+.dlk-radios input[type="radio"]:checked + .fa,
+.dlk-radios input[type="checkbox"]:checked + .fa {
+  opacity: 1;
+}
+.pListCon {
+  padding: 0px 10px;
+  margin-top: 10px;
+  background-color: aqua;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: solid 1.5px rgb(167, 114, 216);
+  background-color: rgb(252, 240, 255);
+}
+
+/* ------------table-------------- */
+.order_table {
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  border-bottom: solid 1px white;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(127, 255, 212, 0.301); */
+}
+.order_table td {
+  text-align: center;
+  border-bottom: solid 1px rgb(0, 0, 0);
+}
+.order_table th {
+  text-align: center;
+  border-bottom: solid 2px blueviolet;
+}
+
+.order_table tr :hover {
+  background-color: white;
 }

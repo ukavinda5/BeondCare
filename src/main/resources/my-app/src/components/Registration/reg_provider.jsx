@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 class Reg_provider extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      Name: null,
+      name: null,
       email: null,
       location: null,
       nic: null,
@@ -15,8 +16,9 @@ class Reg_provider extends Component {
       gender: null,
       specialization: null,
       experiences: null,
-      address: null,
-      username: null,
+      address1: null,
+      address2: null,
+      address3: null,
       password: null,
       role: null,
     };
@@ -28,13 +30,17 @@ class Reg_provider extends Component {
   };
   nextHaddel = () => {
     console.log(this.state);
-    axios.post("http://localhost:8081/reg_provider", this.state).then((res) => {
-      if (res.data.status == "success") {
-        const user = res.data.user;
-      } else {
-        alert("Something went wrong while creating account");
-      }
-    });
+
+    
+    axios.post("reg_provider",this.state)
+      .then(res =>{
+        
+        localStorage.setItem("user_type","provider");
+        // window.location="www.ggle.com"
+      })
+      .catch(err=>{
+        // window.location="www.error..com"
+      })
   };
   render() {
     return (
@@ -59,7 +65,7 @@ class Reg_provider extends Component {
               <input
                 className="rinput"
                 type="text"
-                name="Name"
+                name="name"
                 placeholder="Name"
                 value={this.setState.Name}
                 onChange={this.onChange}
@@ -149,24 +155,35 @@ class Reg_provider extends Component {
             </label>
             <label>
               <input
-                className="rinput"
+                className="rinputA"
                 type="text"
-                name="address"
-                placeholder="Address"
+                name="address1"
+                placeholder="Address(NO)"
                 value={this.setState.address}
                 onChange={this.onChange}
               ></input>
             </label>
             <label>
               <input
-                className="rinput"
+                className="rinputA"
                 type="text"
-                name="username"
-                placeholder="Username"
-                value={this.setState.username}
+                name="address2"
+                placeholder="Address()"
+                value={this.setState.address}
                 onChange={this.onChange}
               ></input>
             </label>
+            <label>
+              <input
+                className="rinputAl"
+                type="text"
+                name="address3"
+                placeholder="Address(City)"
+                value={this.setState.address}
+                onChange={this.onChange}
+              ></input>
+            </label>
+           
             <label>
               <input
                 className="rinpute"
@@ -187,12 +204,11 @@ class Reg_provider extends Component {
               <Link to="/singup">
                 <div className="login_btn">Back</div>
               </Link>
-
-              <Link to="/reg_success">
-                <div className="login_btn" onClick={this.nextHaddel}>
-                  Next
-                </div>
-              </Link>
+              
+              <div className="login_btn" onClick={this.nextHaddel}>
+                Next
+              </div>
+          
             </div>
           </form>
         </div>

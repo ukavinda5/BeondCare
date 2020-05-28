@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import user from "../../images/user.png";
 class Rec_profile extends Component {
-  state = {};
+  constructor(props){
+    super(props);
+    this.state = {z:"kjk"};
+    // this.setState(props)
+  }
+  componentDidMount(){
+    alert(this.props.data)
+  }
   render() {
     return (
       <div className="rprofile">
@@ -44,7 +51,7 @@ class Rec_profile extends Component {
           <div className="rabout">
             <h2>About</h2>
             <hr></hr>
-            <label className="rpd">Username :{}</label>
+            <label className="rpd">Username :{this.state.z}</label>
             <br></br>
             <label className="rpd">Email Address :{}</label>
             <br></br>

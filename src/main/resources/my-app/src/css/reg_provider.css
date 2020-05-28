@@ -7,7 +7,7 @@
   flex-direction: column;
 }
 .rdev {
-  margin-top: 10vh;
+  margin-top: 15vh;
   margin-left: 20vw;
   margin-right: 20vw;
   display: flex;
@@ -57,7 +57,30 @@
   border-color: blueviolet;
   border-radius: 10px;
   padding-left: 10px;
+
+  
 }
+.rinputA {
+  margin-right: 1vw;
+  outline: none;
+  border-style: groove;
+  margin-top: 10px;
+  width: 19vw;
+  height: 6vh;
+  border-color: blueviolet;
+  border-radius: 10px;
+  padding-left: 10px;}
+  .rinputAl {
+    margin-right: 0vw;
+    outline: none;
+    border-style: groove;
+    margin-top: 10px;
+    width: 20vw;
+    height: 6vh;
+    border-color: blueviolet;
+    border-radius: 10px;
+    padding-left: 10px;}
+  
 .rinputkm {
   margin-right: 0vw;
   outline: none;
