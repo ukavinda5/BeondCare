@@ -1,12 +1,18 @@
 package com.beondcare.web_app.Services;
 
 import com.beondcare.web_app.Entities.Provider;
-import com.beondcare.web_app.Entities.Receiver;
-import org.springframework.stereotype.Service;
 
-@Service
-public class ProviderService {
-    public Provider saveProvider(Provider provider) {
-        return provider ;
-    }
+import java.util.List;
+import java.util.Optional;
+
+public interface ProviderService {
+    Provider save(Provider provider);
+
+    List<Provider> findAll();
+
+    Optional<Provider> findOne(Integer id);
+
+    Optional<Provider> update(Provider provider);
+
+    void delete(Provider provider);
 }
