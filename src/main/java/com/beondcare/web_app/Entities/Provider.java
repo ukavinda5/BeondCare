@@ -23,8 +23,4 @@ public class Provider {
     private String location;
     private String address;
     private String email;
-
-    @ManyToOne
-    private Job job;
-
 }
