@@ -8,6 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Receiver {
     @Id
+    private Integer id;
     private String name;
     private long mobile;
     private String gender;

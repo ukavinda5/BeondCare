@@ -3,6 +3,7 @@ package com.beondcare.web_app.Entities;
 import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 public class Provider {
     @Id
+    private Integer id;
     private long username;
     private String name;
     private long number;
@@ -22,6 +24,7 @@ public class Provider {
     private String address;
     private String email;
 
-
+    @ManyToOne
+    private Job job;
 
 }
