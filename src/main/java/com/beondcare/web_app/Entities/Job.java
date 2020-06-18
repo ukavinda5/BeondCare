@@ -18,7 +18,6 @@ public @Data class Job {
     private Integer workHours;
     private String petFriendliness;
 
-    @ManyToMany(mappedBy = "jobs", fetch = FetchType.EAGER)
-    @JsonIgnore
+    @OneToMany(mappedBy = "jobs", cascade = CascadeType.ALL)
     private List<Provider> providers;
 }
