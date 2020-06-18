@@ -1,0 +1,27 @@
+INSERT INTO oauth_client_details (client_id, client_secret, web_server_redirect_uri, scope, access_token_validity, refresh_token_validity, resource_ids, authorized_grant_types, additional_information) VALUES ('web', '{bcrypt}$2a$10$fzNG89MZ0bxpeKflRAqXkOXHuCeZAi1HAfbqSZw1/QAx4pNaVKOBm', 'http://localhost:8080/code', 'READ,WRITE', '3600', '10000', 'inventory,payment', 'authorization_code,password,refresh_token,implicit', '{}');
+
+ INSERT INTO permission (NAME) VALUES
+ ('create_profile'),
+ ('read_profile'),
+ ('update_profile'),
+ ('delete_profile'),
+ ('create_job'),
+ ('read_job');
+
+ INSERT INTO role (NAME) VALUES
+		('ROLE_admin'),('ROLE_provider'), ('ROLE_receiver');
+
+ INSERT INTO permission_role (PERMISSION_ID, ROLE_ID) VALUES
+     (1,1), /*create-> admin */
+     (2,1), /* read admin */
+     (3,1), /* update admin */
+     (4,1), /* delete admin */
+     (2,2),  /* read provider */
+     (3,2);  /* update provider */
+insert into user ( user_name,password, email, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked) VALUES ( 'shalintha','{bcrypt}$2a$10$lgf2FxWzpw.yjNybhgWr2eSh0GSFqUGttrxwD2QaO2Ott3hp7ecYm', 'shalintha@gmail.com', '1', '1', '1', '1');
+ insert into  user ( user_name,password, email, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked) VALUES ( 'udesh', '{bcrypt}$2a$10$yuIEUameOlTWe3VFTxAvSO0YCMxn/UR7G9jkhPz4UcHTdFVkYcNqW','udesh@gmail.com', '1', '0', '0', '0');
+
+INSERT INTO role_user (ROLE_ID, USER_ID)
+    VALUES
+    (1, 1) /* shalintha-admin */,
+    (2, 2) /* udesh-operator */ ;
