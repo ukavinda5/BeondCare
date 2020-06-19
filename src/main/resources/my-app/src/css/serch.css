@@ -1,0 +1,63 @@
+.searchcon{
+    height:100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../images/Login_bg.svg);
+    display: flex;
+    flex-direction: column;
+
+}
+.categorize{
+    background-color: rgb(250, 224, 248);
+    /* margin-left: 20vw; */
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 22vh;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 7px;
+    border-bottom: solid 5px blueviolet;
+}
+
+.results{
+    /* min-height: 100vh; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    /* background-color: aqua; */
+}
+.jobadd{
+    display: flex;
+
+    margin: 5vh 5vw;
+    height: 20vh;
+    width: 40vw;
+    background-color: rgb(250, 224, 248);
+border: solid 1px blueviolet;
+border-radius: 10px;
+}
+.jimg{
+    flex: 1;
+    background-color: blueviolet;
+    background-image: url(../images/user.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+.jcontent{
+    padding: 2vh 2vw;
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+/* background-color: cadetblue; */
+}
+.jbtn{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    padding: 1vh 2vw;
+}

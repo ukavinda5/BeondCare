@@ -1,35 +1,42 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link,useHistory, Router, Route} from "react-router-dom";
+// import {browserHistory} from "react-router-dom";
 import axios from "axios";
+import Rec_profile from "./Profile/rec_profile";
+import { callback } from "./Search/ggg/action";
 class Login extends Component {
   constructor(props){
   
     super(props);
-    
+        
     this.state={
       username:null,
-      password:null
+      password:null,
+      id:null
     }
+    
+    this.login=this.login.bind(this);
  
   }
 
 
-  login=()=>{
-    console.log(this.state);
-
+  login(){
+    console.log(this.state)
     axios.post("login",this.state)
       .then(res =>{
-         localStorage.setItem("Id","type");
-        
+        let id=10;
+        // callback
       })
       .catch(err=>{
         
       })
 
-
-    this.props.callback({"user":"qaz"});
-    // window.location="/profile"
-  }
+      let id=(this.state.username);
+      localStorage.setItem("id",id)
+      window.location = "/pprofile";
+    //  browserHistory.push();
+     
+    }
   onChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,

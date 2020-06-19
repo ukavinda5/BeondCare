@@ -40,3 +40,10 @@
   padding: 20px;
   font-weight: 750;
 }
+.pitem{
+  padding: 5px 10px;
+  width: auto;
+}
+.pitem i {
+  padding: 5px;
+}

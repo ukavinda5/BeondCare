@@ -1,0 +1,46 @@
+.cjob{
+    background-image: url(../images/Login_bg.svg);
+    height: 100vh;
+    width: 100vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+
+}
+.cjobcon{
+margin-top: 15vh;
+display: flex;
+    align-items: center;
+    width: 100vw;
+    display: flex;
+flex-direction: column;
+}
+.cjobheadr{
+    font-size: 40px;
+    text-decoration-color: blueviolet;
+
+}
+.cjpart label{
+    
+    margin-right: 10px;
+    margin-left: 20px;
+    
+}
+.cjpart{
+    margin-top: 2vh;
+}
+.cjtxtarea{
+    margin-top: 5vh;
+    border: solid 2px blueviolet ;
+    min-width: 48vw;
+    min-height: 30vh;
+    border-radius: 10px;
+   padding: 10px;
+
+
+}
+.cjdiscr{
+    min-width: 48vw;
+    min-height: 10vh;
+
+}

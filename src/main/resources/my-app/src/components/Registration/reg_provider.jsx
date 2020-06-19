@@ -204,10 +204,11 @@ class Reg_provider extends Component {
               <Link to="/singup">
                 <div className="login_btn">Back</div>
               </Link>
-              
+              <Link>
               <div className="login_btn" onClick={this.nextHaddel}>
                 Next
               </div>
+              </Link>
           
             </div>
           </form>

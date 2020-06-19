@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import user from "../../images/user.png";
-class Rec_profile extends Component {
+class Pro_profile extends Component {
   constructor(props){
     super(props);
-    // alert(props.getId())
     console.log(props)
     this.state = {id:""};
     // this.setState(props)
@@ -12,7 +11,6 @@ class Rec_profile extends Component {
   componentDidMount(){
     this.setState({id:""})
   }
-  
   render() {
     return (
       <div className="rprofile">
@@ -20,28 +18,34 @@ class Rec_profile extends Component {
           <ul>
             <li>
               <Link to="/search">
-                <div className="nav-item">
+                <div className="nav-item pitem">
                   <i class="fas fa-search"></i>
                 </div>
               </Link>
             </li>
             <li>
               <Link to="/#">
-                <div className="nav-item">
+                <div className="nav-item pitem">
                   <i class="fas fa-clipboard-list"></i>
                 </div>
               </Link>
             </li>
+            
             <li>
               <Link to="/#">
-                <div className="nav-item">
+                <div className="nav-item pitem">
                   <i class="far fa-bell"></i>
                 </div>
               </Link>
             </li>
             <li>
+              <Link to="/cjob">
+                <div className="nav-item pitem"><i class="fa fa-plus" aria-hidden="true"></i>Make a Job Request </div>
+              </Link>
+            </li>
+            <li>
               <Link to="/login">
-                <div className="nav-item">Logout</div>
+                <div className="nav-item pitem">Logout</div>
               </Link>
             </li>
           </ul>
@@ -71,4 +75,4 @@ class Rec_profile extends Component {
   }
 }
 
-export default Rec_profile;
+export default Pro_profile;
