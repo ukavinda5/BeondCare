@@ -20,7 +20,7 @@ class Reg_provider extends Component {
       address2: null,
       address3: null,
       password: null,
-      role: null,
+      role: 2,
     };
   }
   onChange = (e) => {
@@ -30,17 +30,38 @@ class Reg_provider extends Component {
   };
   nextHaddel = () => {
     console.log(this.state);
+    let authDetails =
+    {
+    email:this.state.email,
+    password : this.state.password,
+    role:this.state.role
+    }
 
-    
-    axios.post("reg_provider",this.state)
+
+
+      axios.post("/api/user/save",authDetails)
       .then(res =>{
         
         localStorage.setItem("user_type","provider");
-        // window.location="www.ggle.com"
+         window.location="/pprofile"
       })
       .catch(err=>{
         // window.location="www.error..com"
       })
+
+
+
+      
+    axios.post("/api/provider/save",this.state)
+    .then(res =>{
+      
+      localStorage.setItem("user_type","provider");
+      // window.location="www.ggle.com"
+    })
+    .catch(err=>{
+      // window.location="www.error..com"
+    })
+
   };
   render() {
     return (

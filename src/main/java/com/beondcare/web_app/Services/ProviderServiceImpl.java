@@ -5,6 +5,7 @@ import com.beondcare.web_app.repository.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.Email;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,13 +27,13 @@ public class ProviderServiceImpl implements ProviderService {
     }
 
     @Override
-    public Optional<Provider> findOne(Integer id){
-        return providerRepository.findById(id);
+    public Optional<Provider> findOne(String email){
+        return providerRepository.findById(email);
     }
 
     @Override
     public Optional<Provider> update(Provider provider){
-        Optional<Provider> optional = providerRepository.findById(provider.getId());
+        Optional<Provider> optional = providerRepository.findById(provider.getEmail());
         if(optional.isPresent()){
             providerRepository.save(provider);
         }
@@ -41,7 +42,7 @@ public class ProviderServiceImpl implements ProviderService {
 
     @Override
     public void delete(Provider provider){
-        Optional<Provider> optional = providerRepository.findById(provider.getId());
+        Optional<Provider> optional = providerRepository.findById(provider.getEmail());
         if(optional.isPresent()){
             providerRepository.delete(provider);
         }

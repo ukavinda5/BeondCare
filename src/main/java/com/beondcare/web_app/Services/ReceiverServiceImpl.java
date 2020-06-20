@@ -25,13 +25,13 @@ public class ReceiverServiceImpl implements ReceiverService {
     }
 
     @Override
-    public Optional<Receiver> findOne(Integer id){
-        return receiverRepository.findById(id);
+    public Optional<Receiver> findOne(String email){
+        return receiverRepository.findById(email);
     }
 
     @Override
     public Optional<Receiver> update(Receiver receiver){
-        Optional<Receiver> optional = receiverRepository.findById(receiver.getId());
+        Optional<Receiver> optional = receiverRepository.findById(receiver.getEmail());
         if(optional.isPresent()){
             receiverRepository.save(receiver);
         }
@@ -40,7 +40,7 @@ public class ReceiverServiceImpl implements ReceiverService {
 
     @Override
     public void delete(Receiver receiver){
-        Optional<Receiver> optional = receiverRepository.findById(receiver.getId());
+        Optional<Receiver> optional = receiverRepository.findById(receiver.getEmail());
         if(optional.isPresent()){
             receiverRepository.delete(receiver);
         }

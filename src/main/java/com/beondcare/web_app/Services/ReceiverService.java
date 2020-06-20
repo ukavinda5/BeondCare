@@ -10,7 +10,7 @@ public interface ReceiverService {
 
     List<Receiver> findAll();
 
-    Optional<Receiver> findOne(Integer id);
+    Optional<Receiver> findOne(String email);
 
     Optional<Receiver> update(Receiver receiver);
 

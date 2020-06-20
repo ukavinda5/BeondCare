@@ -8,9 +8,9 @@ class Login extends Component {
   constructor(props){
   
     super(props);
-        
+    localStorage.setItem("email",null)  
     this.state={
-      username:null,
+      email:null,
       password:null,
       id:null
     }
@@ -21,21 +21,26 @@ class Login extends Component {
 
 
   login(){
-    console.log(this.state)
-    axios.post("login",this.state)
+    // console.log(this.state)
+    axios.post("/api/user/authenticate",this.state)
       .then(res =>{
-        let id=10;
-        // callback
+        console.log(res.data.email)
+        if(res.data.email){
+          localStorage.setItem("email",res.data.email)
+          if(res.data.role==="2"){
+            window.location = "/pprofile";
+          }
+          if(res.data.role==="1"){
+            window.location = "/rprofile";
+          }
+
+        }else{
+          alert("Invnalid credentials !")
+        }
       })
       .catch(err=>{
-        
-      })
-
-      let id=(this.state.username);
-      localStorage.setItem("id",id)
-      window.location = "/pprofile";
-    //  browserHistory.push();
-     
+        alert("Invnalid credentials !")
+      })     
     }
   onChange = (e) => {
     this.setState({
@@ -64,7 +69,7 @@ class Login extends Component {
         <div className="loginc">
           <div className="logincon">
             <h1>LOGIN</h1>
-            <input className="input" type="text" name="username" placeholder="username" value={this.setState.username}
+            <input className="input" type="text" name="email" placeholder="email" value={this.setState.username}
                 onChange={this.onChange} />
             <input className="input" type="password" name="password" placeholder="password" value={this.setState.password}
                 onChange={this.onChange} />

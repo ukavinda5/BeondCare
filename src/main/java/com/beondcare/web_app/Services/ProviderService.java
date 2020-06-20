@@ -10,7 +10,7 @@ public interface ProviderService {
 
     List<Provider> findAll();
 
-    Optional<Provider> findOne(Integer id);
+    Optional<Provider> findOne(String email);
 
     Optional<Provider> update(Provider provider);
 

@@ -13,7 +13,7 @@ class Reg_receiver extends Component {
       address2: null,
       address3: null,
       password: null,
-      role: null,
+      role: 1,
     };
   }
   onChange = (e) => {
@@ -23,13 +23,34 @@ class Reg_receiver extends Component {
   };
   nextHaddel = () => {
     console.log(this.state);
-    axios.post("http://localhost:8081/reg_recever", this.state).then((res) => {
-      if (res.data.status == "success") {
-        const user = res.data.user;
-      } else {
-        alert("Something went wrong while creating account");
-      }
-    });
+
+    let authDetails =
+    {
+    email:this.state.email,
+    password : this.state.password,
+    role:this.state.role
+    }
+
+
+    axios.post("/api/user/save",authDetails)
+      .then(res => {
+      localStorage.setItem("user_type","receiver");
+         window.location="/pprofile"
+        })
+        .catch(err=>{
+          // window.location="www.error..com"
+        })
+
+
+        axios.post("/api/receiver/save",this.state)
+    .then(res =>{
+      
+      localStorage.setItem("user_type","receiver");
+      // window.location="www.ggle.com"
+    })
+    .catch(err=>{
+      // window.location="www.error..com"
+    })
   };
   render() {
     return (

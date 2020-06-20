@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class Provider {
     @Id
-    private Integer id;
+    private String email;
     private String name;
     private long number;
     private String gender;
@@ -21,8 +21,11 @@ public class Provider {
     private String nic;
     private String experiences;
     private String location;
-    private String address;
-    private String email;
+    private String address3;
+    private String address1;
+    private String address2;
+    private  String role ;
+
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn

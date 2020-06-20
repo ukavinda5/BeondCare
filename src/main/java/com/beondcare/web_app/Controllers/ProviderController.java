@@ -16,7 +16,7 @@ public class ProviderController {
     ProviderService providerService;
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public Provider save(@RequestParam Provider provider){
+    public Provider save(@RequestBody Provider provider){
         return providerService.save(provider);
     }
 
@@ -25,9 +25,9 @@ public class ProviderController {
         return providerService.findAll();
     }
 
-    @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
-    public Optional<Provider> findOne(@PathVariable Integer id){
-        return providerService.findOne(id);
+    @RequestMapping(value = "/find/byemail", method = RequestMethod.GET)
+    public Optional<Provider> findOne(@PathVariable String email){
+        return providerService.findOne(email);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)

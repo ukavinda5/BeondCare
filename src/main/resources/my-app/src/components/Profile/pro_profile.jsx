@@ -1,14 +1,33 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import user from "../../images/user.png";
+import axios from "axios";
 class Pro_profile extends Component {
   constructor(props){
     super(props);
+   
     console.log(props)
     this.state = {id:""};
     // this.setState(props)
   }
   componentDidMount(){
+    
+    if(this.props.id==="null"){
+
+      window.location="/login"
+
+
+    }
+
+    axios
+      .get("/api/provider/find/byemail",this.props.id)
+      .then((a) => {
+        console.log(a);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
     this.setState({id:""})
   }
   render() {

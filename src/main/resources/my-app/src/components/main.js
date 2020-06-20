@@ -49,8 +49,8 @@ class Main extends Component {
           <Route path="/singup" exact component={Reg_home} />
           <Route path="/regpro" exact component={Reg_provider} />
           <Route path="/regres" exact component={Reg_receiver} />
-          <Route path="/rprofile" component={() => <Rec_profile getId={this.getId} id={localStorage.getItem("id")} />} />
-          <Route path="/pprofile" component={() => <Pro_profile getId={this.getId} id={localStorage.getItem("id")} />} />
+          <Route path="/rprofile" component={() => <Rec_profile getId={this.getId} id={localStorage.getItem("email")} />} />
+          <Route path="/pprofile" component={() => <Pro_profile getId={this.getId} id={localStorage.getItem("email")} />} />
           <Route path="/jprofile" component={() => <Job_profile getId={this.getId} id={localStorage.getItem("id")} />} />
           <Route path="/reg_success" exact component={Reg_success} />
           <Route path="/admin/**" exact component={Admin} />

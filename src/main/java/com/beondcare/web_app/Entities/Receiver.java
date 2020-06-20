@@ -8,16 +8,14 @@ import javax.persistence.Id;
 @Entity
 public class Receiver {
     @Id
-    private Integer id;
+    private String email;
     private String name;
     private long mobile;
-    private String gender;
-    private int age;
-    private String specialization;
-    private String nic;
-    private String experiences;
-    private String location;
-    private String address;
-    private String email;
+    private String role;
+    private String address3;
+    private String address1;
+    private String address2;
+
+
 
 }

@@ -16,7 +16,7 @@ public class ReceiverController {
     ReceiverService receiverService;
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public Receiver save(@RequestParam Receiver receiver){
+    public Receiver save(@RequestBody Receiver receiver){
         return receiverService.save(receiver);
     }
 
@@ -25,10 +25,10 @@ public class ReceiverController {
         return receiverService.findAll();
     }
 
-    @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
-    public Optional<Receiver> findOne(@PathVariable Integer id){
-        return receiverService.findOne(id);
-    }
+//    @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
+//    public Optional<Receiver> findOne(@PathVariable Integer id){
+//        return receiverService.findOne(id);
+//    }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public Optional<Receiver> update(@RequestParam Receiver receiver){
