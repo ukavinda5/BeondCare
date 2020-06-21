@@ -1,8 +1,25 @@
 import React, { Component } from 'react'
-
+import axios from "axios";
 
 class Search extends Component {
-    state = {  }
+  constructor(props) {
+    super(props);
+    this.state = { jobs: [] };
+   
+  }
+
+    componentDidMount() {
+  
+      axios
+        .get("/api/job/find/all")
+        .then((a) => {
+          this.setState({ jobs: a.data });
+          console.log(this.state);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
     render() { 
         return ( 
             <div className="searchcon">
@@ -50,22 +67,30 @@ class Search extends Component {
              
                 
             </div>
+            
             <div className="results">
 
-                <div className="jobadd">
-                <div className="jimg">
+                {this.state.jobs.map(
+                  (i) =>{
+                    return(
+                      <div className="jobadd">
+                        <div className="jimg"></div>
+                        <div className="jcontent">
+                          <label>Name : {}</label>
+                          <label>Age : {}</label>
+                        </div>
+                        <div className="jbtn">
+                          <button>More Details</button>
+                          <button>Shortlist</button>
+                        </div>
+                      </div>
+                    )
+                  }
+                )}
+                
 
-                </div>
-                  <div className="jcontent">
-                  <label>Name : {}</label>
-                  <label>Age : {}</label>
 
-                  </div>
-                  <div className="jbtn">
-                    <button>More Details</button>
-                    <button>Shortlist</button>
-                  </div>
-                </div><div className="jobadd"></div>
+                {/* <div className="jobadd"></div> */}
 
                 </div>
             </div>
