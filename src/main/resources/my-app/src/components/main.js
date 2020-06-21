@@ -57,7 +57,7 @@ class Main extends Component {
           <Route path="/admin/r_list" exact component={R_list} />
           <Route exact path="/admin/p_list"  component={P_list} />
           <Route path="/search" exact component={Search} />
-          <Route path="/cjob" exact component={Createjob} />
+          <Route path="/cjob" exact component={() => <Createjob getId={this.getId} id={localStorage.getItem("email")} />} />
   
           {/* <Route path="/regres" ecact component={Reg_successful} /> */}
         {/*}  <Route path="/t" component={FetchHOC('test')(Rec_profile)} /> 

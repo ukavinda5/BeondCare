@@ -10,7 +10,7 @@ public interface JobService {
 
     List<Job> findAll();
 
-    Optional<Job> findOne(Integer id);
+    Optional<Job> findOne(String email);
 
     Optional<Job> update(Job job);
 

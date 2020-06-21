@@ -26,13 +26,13 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public Optional<Job> findOne(Integer id){
-        return jobRepository.findById(id);
+    public Optional<Job> findOne(String email){
+        return jobRepository.findById(email);
     }
 
     @Override
     public Optional<Job> update(Job job){
-        Optional<Job> optional = jobRepository.findById(job.getId());
+        Optional<Job> optional = jobRepository.findById(job.getEmail());
         if(optional.isPresent()){
             jobRepository.save(job);
         }

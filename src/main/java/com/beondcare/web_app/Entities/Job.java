@@ -12,11 +12,13 @@ public @Data class Job {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private String email;
     private Integer salary;
-    private String specialization;
-    private Integer workHours;
-    private String petFriendliness;
+    private String workAs;
+    private String workHours;
+    private String petFriendly;
+    private String details;
+    private String availability;
 
     @OneToMany(mappedBy = "jobs", cascade = CascadeType.ALL)
     private List<Provider> providers;

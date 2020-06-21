@@ -11,7 +11,7 @@ class Reg_provider extends Component {
       email: null,
       location: null,
       nic: null,
-      mobile: null,
+      number: null,
       age: null,
       gender: null,
       specialization: null,

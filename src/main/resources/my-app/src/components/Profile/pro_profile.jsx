@@ -8,6 +8,7 @@ class Pro_profile extends Component {
    
     console.log(props)
     this.state = {id:""};
+    this.state = { user:Object};
     // this.setState(props)
   }
   componentDidMount(){
@@ -20,9 +21,11 @@ class Pro_profile extends Component {
     }
 
     axios
-      .get("/api/provider/find/byemail",this.props.id)
+      .get("/api/provider/find/byemail/"+this.props.id)
       .then((a) => {
+        this.setState({ user: a.data });
         console.log(a);
+        
       })
       .catch((err) => {
         console.log(err);
@@ -72,20 +75,20 @@ class Pro_profile extends Component {
         <div className="profile_con">
           <div className="profil_pic">
             <img src={user} />
-            <label className="rpd">Name Name </label>
+            <label className="rpd">{this.state.user.name}</label>
           </div>
           <div className="rabout">
             <h2>About</h2>
             <hr></hr>
-            <label className="rpd">Username :{this.props.id}</label>
+            <label className="rpd">Username :{this.state.user.name}</label>
             <br></br>
-            <label className="rpd">Email Address :{}</label>
+            <label className="rpd">Email Address :{this.state.user.email}</label>
             <br></br>
-            <label className="rpd">Mobile Number :{}</label>
+            <label className="rpd">Mobile Number :{this.state.user.number}</label>
             <br></br>
-            <label className="rpd">Address :{}</label>
+            <label className="rpd">Address :{this.state.user.address1+this.state.user.address2+this.state.user.address3}</label>
             <br></br>
-            <label className="rpd">Requirments :{}</label>
+            <label className="rpd">Specialization :{this.state.user.specialization}</label>
             <br></br>
           </div>
         </div>

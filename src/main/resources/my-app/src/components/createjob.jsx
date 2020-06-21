@@ -1,36 +1,40 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 class Createjob extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: null,
+      salary: null,
+      workAs: null,
+      availability: null,
+      petFriendly: null,
+      workHours: null,
+      details: null,
+    };
+  }
+  componentDidMount(){
+    this.setState({email:this.props.id});
     
-        this.state = {
-          Name: null,
-          email: null,
-          mobile: null,
-          address1: null,
-          address2: null,
-          address3: null,
-          password: null,
-          role: null,
-          availability:null,
-          petFriendly:null,
-          workHours:null,
-          experience:null,
+    if(this.props.id==="null"){
 
-        };
+      window.location="/login"
+
     }
-        onChange = (e) => {
-            this.setState({
-              [e.target.name]: e.target.value,
-            });
-        };
+    
+  }
+  onChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
 
-        submitHaddel = () => {
-            console.log(this.state);
-        
-        }
-    render() {
+  submitHaddel = () => {
+    console.log(this.state);
+  };
+  render() {
     return (
       <div className="cjob">
         <div className="cjobcon">
@@ -50,7 +54,6 @@ class Createjob extends Component {
               <option value="Babysitter">Babysitter</option>
               <option value="Cook">Cook</option>
               <option value="Elder Coregiver">Elder Coregiver</option>
-              
             </select>
 
             <label>Expected Salary :</label>
@@ -69,7 +72,7 @@ class Createjob extends Component {
             <textarea
               placeholder="Experience"
               className="cjtxtarea"
-              name="experience"
+              name="details"
               value={this.state.value}
               onChange={this.onChange}
             />
@@ -92,9 +95,6 @@ class Createjob extends Component {
               <option value="Part Time">Part Time</option>
             </select>
 
-
-
-
             <label>Pet Friendly :</label>
 
             <select
@@ -105,13 +105,11 @@ class Createjob extends Component {
               placeholder="Yes/No"
             >
               <option value="" selected disabled hidden>
-              Yes/No
+                Yes/No
               </option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
-
-
 
             <label>Availability :</label>
 
@@ -123,28 +121,26 @@ class Createjob extends Component {
               placeholder="Yes/No"
             >
               <option value="" selected disabled hidden>
-              Yes/No
+                Yes/No
               </option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
           </div>
           <div className="bot">
-              <Link to="/pprofile">
-                <div className="login_btn">Back</div>
-              </Link>
-              <Link>
+            <Link to="/pprofile">
+              <div className="login_btn">Back</div>
+            </Link>
+            <Link>
               <div className="login_btn" onClick={this.submitHaddel}>
                 Pay & Submit
               </div>
-              </Link>
-          
-            </div>
+            </Link>
+          </div>
         </div>
       </div>
     );
-    }
   }
-
+}
 
 export default Createjob;

@@ -25,7 +25,7 @@ public class ProviderController {
         return providerService.findAll();
     }
 
-    @RequestMapping(value = "/find/byemail", method = RequestMethod.GET)
+    @RequestMapping(value = "/find/byemail/{email}", method = RequestMethod.GET)
     public Optional<Provider> findOne(@PathVariable String email){
         return providerService.findOne(email);
     }

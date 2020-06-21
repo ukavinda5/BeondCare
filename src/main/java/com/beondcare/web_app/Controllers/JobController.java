@@ -25,9 +25,9 @@ public class JobController {
         return jobService.findAll();
     }
 
-    @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
-    public Optional<Job> findOne(@PathVariable Integer id){
-        return jobService.findOne(id);
+    @RequestMapping(value = "/find/byemail", method = RequestMethod.GET)
+    public Optional<Job> findOne(@PathVariable String email){
+        return jobService.findOne(email);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
