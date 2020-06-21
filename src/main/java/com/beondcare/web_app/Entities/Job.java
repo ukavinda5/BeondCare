@@ -11,7 +11,7 @@ import java.util.List;
 public @Data class Job {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private String email;
     private Integer salary;
     private String workAs;

@@ -33,6 +33,15 @@ class Createjob extends Component {
 
   submitHaddel = () => {
     console.log(this.state);
+    axios.post("/api/job/save",this.state)
+    .then(res =>{
+      
+      localStorage.setItem("user_type","provider");
+      // window.location="www.ggle.com"
+    })
+    .catch(err=>{
+      // window.location="www.error..com"
+    })
   };
   render() {
     return (
