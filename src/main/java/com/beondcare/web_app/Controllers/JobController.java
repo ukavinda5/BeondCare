@@ -5,6 +5,7 @@ import com.beondcare.web_app.Services.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.ObjectStreamClass;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,10 +26,17 @@ public class JobController {
         return jobService.findAll();
     }
 
-    @RequestMapping(value = "/find/byemail", method = RequestMethod.GET)
-    public Optional<Job> findOne(@PathVariable String email){
-        return jobService.findOne(email);
+    @RequestMapping(value = "/find/byId", method = RequestMethod.GET)
+    public Optional<Job> findOne(@PathVariable Integer id){
+        return jobService.findOne(id);
     }
+
+
+    @RequestMapping(value = "/find/location", method = RequestMethod.GET)
+    public List<String> getLocations(){
+        return jobService.allLocation();
+    }
+
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public Optional<Job> update(@RequestBody Job job){

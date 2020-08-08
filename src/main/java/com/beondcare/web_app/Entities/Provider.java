@@ -13,8 +13,10 @@ import java.util.List;
 public class Provider {
     @Id
     private String email;
-    private String name;
-    private long number;
+    private String Name;
+    private String Name2;
+    private long mobile;
+    private long mobile2;
     private String gender;
     private int age;
     private String specialization;
@@ -27,8 +29,6 @@ public class Provider {
     private  String role ;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn
-    @JsonIgnore
-    private Job jobs;
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
+    private List<Job> jobs;
 }

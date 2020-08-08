@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import user from "../../images/user.png";
+import axios from "axios";
 class Rec_profile extends Component {
   constructor(props){
     super(props);
@@ -10,6 +11,20 @@ class Rec_profile extends Component {
     // this.setState(props)
   }
   componentDidMount(){
+    if(this.props.id==="null"){
+      window.location="/login"
+    }
+
+    axios
+      .get("/api/receiver/find/byemail/"+this.props.id)
+      .then((a) => {
+        this.setState(a.data);
+        console.log(a);        
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      
     this.setState({id:""})
   }
   
@@ -54,15 +69,15 @@ class Rec_profile extends Component {
           <div className="rabout">
             <h2>About</h2>
             <hr></hr>
-            <label className="rpd">Username :{this.props.id}</label>
+            <label className="rpd">Username :{this.state.name1+" "+this.state.name2}</label>
             <br></br>
-            <label className="rpd">Email Address :{}</label>
+            <label className="rpd">Email Address :{this.state.email}</label>
             <br></br>
-            <label className="rpd">Mobile Number :{}</label>
+            <label className="rpd">Mobile Number :{this.state.mobile2}</label>
             <br></br>
-            <label className="rpd">Address :{}</label>
+            <label className="rpd">Address :{this.state.address1+", "+this.state.address2+", "+this.state.address3}</label>
             <br></br>
-            <label className="rpd">Requirments :{}</label>
+            <label className="rpd">Requirments :{this.state.specialization}</label>
             <br></br>
           </div>
         </div>

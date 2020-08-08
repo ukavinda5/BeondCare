@@ -1,5 +1,6 @@
 package com.beondcare.web_app.Controllers;
 
+import com.beondcare.web_app.Entities.Provider;
 import com.beondcare.web_app.Entities.Receiver;
 import com.beondcare.web_app.Services.ReceiverService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,11 @@ public class ReceiverController {
 //    public Optional<Receiver> findOne(@PathVariable Integer id){
 //        return receiverService.findOne(id);
 //    }
+
+    @RequestMapping(value = "/find/byemail/{email}", method = RequestMethod.GET)
+    public Optional<Receiver> findOne(@PathVariable String email){
+        return receiverService.findOne(email);
+    }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public Optional<Receiver> update(@RequestParam Receiver receiver){

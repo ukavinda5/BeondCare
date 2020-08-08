@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {
+  BrowserRouter as Router,
+ 
+  useHistory,
+  
+} from "react-router-dom";
 class Createjob extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       email: null,
       salary: null,
@@ -12,7 +17,10 @@ class Createjob extends Component {
       availability: null,
       petFriendly: null,
       workHours: null,
-      details: null,
+      ex1: null,
+      ex2: null,
+      ex3: null,
+      ex4: null,
     };
   }
   componentDidMount(){
@@ -38,10 +46,30 @@ class Createjob extends Component {
       
       localStorage.setItem("user_type","provider");
       // window.location="www.ggle.com"
+    
     })
     .catch(err=>{
       // window.location="www.error..com"
     })
+    // let history = useHistory();
+    // history.goBack();
+    // this.props.history.push('/');
+    // window.location="/login"
+    axios.get("/api/user/find/byemail/"+this.props.id)
+      .then(res =>{
+        console.log(res.data.email)
+        if(res.data.email){
+          if(res.data.role==="2"){
+            window.location = "/pprofile";
+          }
+          if(res.data.role==="1"){
+            window.location = "/rprofile";
+          }
+
+        }else{
+          alert("Invnalid credentials !")
+        }
+      })
   };
   render() {
     return (
@@ -63,6 +91,8 @@ class Createjob extends Component {
               <option value="Babysitter">Babysitter</option>
               <option value="Cook">Cook</option>
               <option value="Elder Coregiver">Elder Coregiver</option>
+              <option value="Driver">Driver</option>
+              <option value="Other">Other</option>
             </select>
 
             <label>Expected Salary :</label>
@@ -76,16 +106,49 @@ class Createjob extends Component {
               onChange={this.onChange}
             ></input>
           </div>
-
+          <div className="ex">
           <label>
-            <textarea
+          <input
+              className="rinput"
+              type="text"
+              name="ex1"
+              placeholder="Experience"
+              value={this.setState.ex1}
+              onChange={this.onChange}
+            ></input>
+            <input
+              className="rinput"
+              type="text"
+              name="ex2"
+              placeholder="Experience"
+              value={this.setState.ex2}
+              onChange={this.onChange}
+            ></input>
+            <input
+              className="rinput"
+              type="text"
+              name="ex3"
+              placeholder="Experience"
+              value={this.setState.ex3}
+              onChange={this.onChange}
+            ></input>
+            <input
+              className="rinput"
+              type="text"
+              name="ex4"
+              placeholder="Experience"
+              value={this.setState.ex4}
+              onChange={this.onChange}
+            ></input>
+            {/* <textarea
               placeholder="Experience"
               className="cjtxtarea"
               name="details"
               value={this.state.value}
               onChange={this.onChange}
-            />
+            /> */}
           </label>
+          </div>
 
           <div className="cjpart">
             <label>Work Hours :</label>

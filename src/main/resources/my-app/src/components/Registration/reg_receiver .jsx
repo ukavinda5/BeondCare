@@ -6,14 +6,17 @@ class Reg_receiver extends Component {
     super(props);
 
     this.state = {
-      Name: null,
+      name1: null,
+      name2: null,
       email: null,
       mobile: null,
+      mobile2: null,
       address1: null,
       address2: null,
       address3: null,
       password: null,
       role: 1,
+      nic :null
     };
   }
   onChange = (e) => {
@@ -34,8 +37,9 @@ class Reg_receiver extends Component {
 
     axios.post("/api/user/save",authDetails)
       .then(res => {
-      localStorage.setItem("user_type","receiver");
-         window.location="/pprofile"
+         localStorage.setItem("user_type","receiver");
+         localStorage.setItem("email",authDetails.email);
+        //  window.location="/pprofile"
         })
         .catch(err=>{
           // window.location="www.error..com"
@@ -73,34 +77,43 @@ class Reg_receiver extends Component {
           <form>
             <label>
               <input
-                className="rinput"
+                className="rinpute"
                 type="text"
                 placeholder="Name"
-                name="Name"
-                value={this.setState.Name}
+                name="name1"
+                value={this.setState.name1}
                 onChange={this.onChange}
               ></input>
             </label>
             <label>
               <input
-                className="rinput"
+                className="rinpute2"
+                type="text"
+                placeholder="Name"
+                name="name2"
+                value={this.setState.name2}
+                onChange={this.onChange}
+              ></input>
+            </label>
+            <label>
+              <input
+                className="rinpute"
                 type="email"
                 name="email"
                 placeholder="Email Address"
                 value={this.setState.email}
                 onChange={this.onChange}
               ></input>
-            </label>
-            <label>
               <input
-                className="rinput"
+                className="rinpute2"
                 type="tel"
-                placeholder="Mobile Number"
-                name="mobile"
-                value={this.setState.mobile}
+                name="nic"
+                placeholder="NIC NO"
+                value={this.setState.nic}
                 onChange={this.onChange}
               ></input>
             </label>
+            
             <label>
               <input
                 className="rinputA"
@@ -131,7 +144,26 @@ class Reg_receiver extends Component {
                 onChange={this.onChange}
               ></input>
             </label>
-            
+            <label>
+              <input
+                className="rinpute"
+                type="tel"
+                placeholder="Mobile Number"
+                name="mobile"
+                value={this.setState.mobile}
+                onChange={this.onChange}
+              ></input>
+            </label>
+            <label>
+              <input
+                className="rinpute2"
+                type="tel"
+                placeholder="Mobile Number (Optional)"
+                name="mobile2"
+                value={this.setState.mobile}
+                onChange={this.onChange}
+              ></input>
+            </label>
             <label>
               <input
                 className="rinput"
@@ -149,9 +181,9 @@ class Reg_receiver extends Component {
                 placeholder="Retype Password"
               ></input>
             </label>
-            <h4> Requirments : </h4>
+            {/* <h4> Requirments : </h4> */}
             <div className="dlk-radio ">
-              <label className="btn btn-success">
+              {/* <label className="btn btn-success">
                 <input
                   name="choices[1]"
                   className="form-control"
@@ -194,13 +226,24 @@ class Reg_receiver extends Component {
                 Elder Coregiver
                 <i className="fa fa-times glyphicon glyphicon-ok ro "></i>
               </label>
+              <label className="btn btn-warning">
+                <input
+                  name="choices[1]"
+                  className="form-control"
+                  type="radio"
+                  value="4"
+                  defaultchecked="checked"
+                ></input>
+                Driver
+                <i className="fa fa-times glyphicon glyphicon-ok ro "></i>
+              </label> */}
             </div>
             <div className="bot">
               <Link to="/singup">
                 <div className="login_btn">Back</div>
               </Link>
 
-              <Link to="/reg_success">
+              <Link>
                 <div className="login_btn" onClick={this.nextHaddel}>
                   Next
                 </div>

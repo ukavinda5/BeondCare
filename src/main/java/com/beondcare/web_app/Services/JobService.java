@@ -10,9 +10,11 @@ public interface JobService {
 
     List<Job> findAll();
 
-    Optional<Job> findOne(String email);
+    Optional<Job> findOne(Integer id);
 
     Optional<Job> update(Job job);
+
+    List<String> allLocation();
 
     void delete(Job job);
 }

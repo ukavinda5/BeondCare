@@ -8,10 +8,12 @@ class Reg_provider extends Component {
 
     this.state = {
       name: null,
+      name2:null,
       email: null,
       location: null,
       nic: null,
-      number: null,
+      mobile:null,
+      mobile2:null,
       age: null,
       gender: null,
       specialization: null,
@@ -27,6 +29,7 @@ class Reg_provider extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+
   };
   nextHaddel = () => {
     console.log(this.state);
@@ -43,7 +46,7 @@ class Reg_provider extends Component {
       .then(res =>{
         
         localStorage.setItem("user_type","provider");
-         window.location="/pprofile"
+        //  window.location="/pprofile"
       })
       .catch(err=>{
         // window.location="www.error..com"
@@ -82,19 +85,29 @@ class Reg_provider extends Component {
         </nav>
         <div className="rdev">
           <form>
-            <label>
+          <label>
               <input
-                className="rinput"
+                className="rinpute"
                 type="text"
+                placeholder="First Name"
                 name="name"
-                placeholder="Name"
-                value={this.setState.Name}
+                value={this.setState.name}
                 onChange={this.onChange}
               ></input>
             </label>
             <label>
               <input
-                className="rinpute"
+                className="rinpute2"
+                type="text"
+                placeholder="Last Name"
+                name="name2"
+                value={this.setState.name2}
+                onChange={this.onChange}
+              ></input>
+            </label>
+            <label>
+              <input
+                className="rinputA"
                 type="email"
                 name="email"
                 placeholder="Email Address"
@@ -102,15 +115,32 @@ class Reg_provider extends Component {
                 onChange={this.onChange}
               ></input>
               <input
-                className="rinpute2"
+                className="rinputA"
                 type="text"
                 name="location"
                 placeholder="Location"
                 value={this.setState.location}
                 onChange={this.onChange}
               ></input>
+               <input
+                className="rinputAl"
+                type="tel"
+                name="mobile"
+                placeholder="Mobile Number"
+                value={this.setState.mobile}
+                onChange={this.onChange}
+              ></input>
+              
             </label>
             <label>
+            <input
+                className="rinputk"
+                type="tel"
+                name="mobile2"
+                placeholder="Mobile Number (Optional)"
+                value={this.setState.mobile2}
+                onChange={this.onChange}
+              ></input>
               <input
                 className="rinputk"
                 type="tel"
@@ -119,14 +149,7 @@ class Reg_provider extends Component {
                 value={this.setState.nic}
                 onChange={this.onChange}
               ></input>
-              <input
-                className="rinputk"
-                type="tel"
-                name="mobile"
-                placeholder="Mobile Number"
-                value={this.setState.mobile}
-                onChange={this.onChange}
-              ></input>
+             
               <input
                 className="rinputk"
                 type="number"
@@ -147,11 +170,6 @@ class Reg_provider extends Component {
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
-              {/* <input
-                className="rinputkm "
-                type="number"
-                placeholder="Gender"
-              ></input> */}
             </label>
 
             <label>

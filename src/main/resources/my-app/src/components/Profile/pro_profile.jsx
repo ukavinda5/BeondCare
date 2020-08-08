@@ -5,34 +5,30 @@ import axios from "axios";
 class Pro_profile extends Component {
   constructor(props){
     super(props);
-   
-    console.log(props)
-    this.state = {id:""};
-    this.state = { user:Object};
-    // this.setState(props)
+    this.state = {
+    };
   }
+  
   componentDidMount(){
     
     if(this.props.id==="null"){
-
       window.location="/login"
-
-
     }
 
     axios
       .get("/api/provider/find/byemail/"+this.props.id)
       .then((a) => {
-        this.setState({ user: a.data });
-        console.log(a);
-        
+        this.setState(a.data);
+        console.log(a);        
       })
       .catch((err) => {
         console.log(err);
       });
-
+      
     this.setState({id:""})
+
   }
+
   render() {
     return (
       <div className="rprofile">
@@ -75,20 +71,20 @@ class Pro_profile extends Component {
         <div className="profile_con">
           <div className="profil_pic">
             <img src={user} />
-            <label className="rpd">{this.state.user.name}</label>
+            <label className="rpd">{this.state.name}</label>
           </div>
           <div className="rabout">
             <h2>About</h2>
             <hr></hr>
-            <label className="rpd">Username :{this.state.user.name}</label>
+            <label className="rpd">Username :{this.state.name+" "+this.state.name2}</label>
             <br></br>
-            <label className="rpd">Email Address :{this.state.user.email}</label>
+            <label className="rpd">Email Address :{this.state.email}</label>
             <br></br>
-            <label className="rpd">Mobile Number :{this.state.user.number}</label>
+            <label className="rpd">Mobile Number :{this.state.mobile}</label>
             <br></br>
-            <label className="rpd">Address :{this.state.user.address1+this.state.user.address2+this.state.user.address3}</label>
+            <label className="rpd">Address :{this.state.address1+", "+this.state.address2+", "+this.state.address3}</label>
             <br></br>
-            <label className="rpd">Specialization :{this.state.user.specialization}</label>
+            <label className="rpd">Specialization :{this.state.specialization}</label>
             <br></br>
           </div>
         </div>

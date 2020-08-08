@@ -1,5 +1,6 @@
 package com.beondcare.web_app.Services;
 
+import com.beondcare.web_app.Entities.Receiver;
 import com.beondcare.web_app.Entities.User;
 import com.beondcare.web_app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,13 @@ public class UserServiceimpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
+//    @Override
+//    public User findUser(String email) {
+//        return userRepository.findById(email) ;
+//    }
     @Override
-    public User findUser(String email) {
-        return null;
+    public Optional<User> findUser(String email){
+        return userRepository.findById(email);
     }
 
     @Override

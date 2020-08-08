@@ -11,7 +11,8 @@ import java.util.List;
 public @Data class Job {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String email;
     private Integer salary;
     private String workAs;
@@ -20,6 +21,8 @@ public @Data class Job {
     private String details;
     private String availability;
 
-    @OneToMany(mappedBy = "jobs", cascade = CascadeType.ALL)
-    private List<Provider> providers;
+
+
+    @ManyToOne
+    private Provider provider;
 }

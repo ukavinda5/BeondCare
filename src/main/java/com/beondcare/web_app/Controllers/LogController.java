@@ -3,11 +3,9 @@ package com.beondcare.web_app.Controllers;
 import com.beondcare.web_app.Entities.User;
 import com.beondcare.web_app.Services.UserServiceimpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
@@ -24,4 +22,13 @@ public class LogController {
     public User authenticate(@RequestBody User user){
         return  userService.authenticate(user);
     }
-}
+
+//    @RequestMapping(value = "/finduser", method = RequestMethod.GET)
+//    public findUser (@RequestBody user user){
+//        return  userService.findUser(email);
+        @RequestMapping(value = "/find/byemail/{email}", method = RequestMethod.GET)
+        public Optional<User> findUser(@PathVariable String email){
+            return userService.findUser(email);
+        }
+    }
+//}

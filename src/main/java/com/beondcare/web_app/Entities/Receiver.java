@@ -9,9 +9,12 @@ import javax.persistence.Id;
 public class Receiver {
     @Id
     private String email;
-    private String name;
-    private long mobile;
+    private String name1;
+    private String name2;
+    private long mobile1;
+    private long mobile2;
     private String role;
+    private String nic;
     private String address3;
     private String address1;
     private String address2;

@@ -15,6 +15,7 @@ import Createjob from "./createjob";
 import R_list from "./admin/p_list";
 import P_list from "./admin/r_list";
 import Job_profile from "./Profile/job_profile";
+import Preview from './preview';
 
 // import Reg_successful from "./components/Registration/Reg_successful ";
 class Main extends Component { 
@@ -57,6 +58,7 @@ class Main extends Component {
           <Route path="/admin/r_list" exact component={R_list} />
           <Route exact path="/admin/p_list"  component={P_list} />
           <Route path="/search" exact component={Search} />
+          <Route path="/preview" exact component={Preview} />
           <Route path="/cjob" exact component={() => <Createjob getId={this.getId} id={localStorage.getItem("email")} />} />
   
           {/* <Route path="/regres" ecact component={Reg_successful} /> */}
