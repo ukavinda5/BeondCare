@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 class Search extends Component {
   constructor(props) {
@@ -45,8 +46,9 @@ class Search extends Component {
         
     }
 
-    filter(value) {
-      return (String(value.workAs).includes(this.state.type));
+    filter(job) {
+      return (String(job.workAs).includes(this.state.type)&&(job.provider&&String((job.provider.name).toUpperCase()).includes(this.state.name.toUpperCase())));
+      
     }
     
     render() { 
@@ -118,12 +120,15 @@ class Search extends Component {
                       <div className="jobadd">
                         <div className="jimg"></div>
                         <div className="jcontent">
-                          <label>Name : {}</label>
-                          <label>Age : {}</label>
+                          <label>Name : {i.provider&&i.provider.name||""}</label>
+                          <label>Age : {i.provider&&i.provider.age||""}</label>
+                          <label>Work as : {i.workAs}</label>
                         </div>
                         <div className="jbtn">
-                          <button>More Details</button>
-                          <button>Shortlist</button>
+                        <Link onClick={()=>{localStorage.setItem("jobId",i.id)}} to="/preview" state={i}>
+                          <button className="myButton">Show More</button>
+                        </Link>
+                          {/*  */}
                         </div>
                       </div>
                     )

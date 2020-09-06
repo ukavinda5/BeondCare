@@ -1,7 +1,11 @@
 package com.beondcare.web_app.Controllers;
 
 import com.beondcare.web_app.Entities.Job;
+import com.beondcare.web_app.Entities.Payments;
+import com.beondcare.web_app.Entities.Shortlist;
 import com.beondcare.web_app.Services.JobService;
+import com.beondcare.web_app.Services.PaymentService;
+import com.beondcare.web_app.Services.ShortlistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +20,11 @@ public class JobController {
     @Autowired
     JobService jobService;
 
+    @Autowired
+    PaymentService paymentService;
+    @Autowired
+    ShortlistService shortlistService;
+
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public Job save(@RequestBody Job job) {
         return jobService.save(job);
@@ -26,8 +35,8 @@ public class JobController {
         return jobService.findAll();
     }
 
-    @RequestMapping(value = "/find/byId", method = RequestMethod.GET)
-    public Optional<Job> findOne(@PathVariable Integer id){
+    @RequestMapping(value = "/find/byId/{id}", method = RequestMethod.GET)
+    public Optional<Job> findOne(@PathVariable("id") Integer id){
         return jobService.findOne(id);
     }
 
@@ -47,4 +56,15 @@ public class JobController {
     public void delete(@RequestBody Job job){
         jobService.delete(job);
     }
+
+    @PostMapping("/doPayment")
+    public Payments doPayment(@RequestBody Payments payments){
+        return  paymentService.dPayments(payments);
+    }
+
+    @PostMapping("/doShortlist")
+    public Shortlist doShortlist(@RequestBody Shortlist shortlist){
+        return  shortlistService.dShortlist(shortlist);
+    }
+
 }

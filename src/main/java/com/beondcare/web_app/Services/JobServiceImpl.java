@@ -2,6 +2,7 @@ package com.beondcare.web_app.Services;
 
 import com.beondcare.web_app.Entities.Job;
 import com.beondcare.web_app.repository.JobRepository;
+import com.beondcare.web_app.repository.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +14,15 @@ public class JobServiceImpl implements JobService {
 
     @Autowired
     JobRepository jobRepository;
+    @Autowired
+    ProviderRepository providerRepository;
+
 
 
     @Override
     public Job save(Job job){
+        String email=job.getEmail();
+        job.setProvider(providerRepository.findByEmail(email));
         return jobRepository.save(job);
     }
 

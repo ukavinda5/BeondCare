@@ -59,7 +59,7 @@ class Reg_provider extends Component {
     .then(res =>{
       
       localStorage.setItem("user_type","provider");
-      // window.location="www.ggle.com"
+      window.location="/reg_success"
     })
     .catch(err=>{
       // window.location="www.error..com"

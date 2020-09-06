@@ -11,6 +11,8 @@ class Createjob extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name:null,
+      age:null,
       email: null,
       salary: null,
       workAs: null,
@@ -24,6 +26,7 @@ class Createjob extends Component {
     };
   }
   componentDidMount(){
+  
     this.setState({email:this.props.id});
     
     if(this.props.id==="null"){

@@ -18,8 +18,7 @@ class Rec_profile extends Component {
     axios
       .get("/api/receiver/find/byemail/"+this.props.id)
       .then((a) => {
-        this.setState(a.data);
-        console.log(a);        
+        this.setState(a.data);      
       })
       .catch((err) => {
         console.log(err);
@@ -64,7 +63,7 @@ class Rec_profile extends Component {
         <div className="profile_con">
           <div className="profil_pic">
             <img src={user} />
-            <label className="rpd">Name Name </label>
+            <label className="rpd">{this.state.name1+" "+this.state.name2} </label>
           </div>
           <div className="rabout">
             <h2>About</h2>
@@ -77,7 +76,7 @@ class Rec_profile extends Component {
             <br></br>
             <label className="rpd">Address :{this.state.address1+", "+this.state.address2+", "+this.state.address3}</label>
             <br></br>
-            <label className="rpd">Requirments :{this.state.specialization}</label>
+            {/* <label className="rpd">Requirments :{this.state.specialization}</label> */}
             <br></br>
           </div>
         </div>

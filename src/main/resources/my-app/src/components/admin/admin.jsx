@@ -20,7 +20,7 @@ class Admin extends Component {
               </Link>
             </li>
             <li>
-              <Link to="/Orders">
+              <Link to="#">
                 <div className="nav-itm">Orders</div>
               </Link>
             </li>

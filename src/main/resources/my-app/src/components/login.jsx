@@ -27,6 +27,7 @@ class Login extends Component {
         console.log(res.data.email)
         if(res.data.email){
           localStorage.setItem("email",res.data.email)
+          localStorage.setItem("user",res.data)
           if(res.data.role==="2"){
             window.location = "/pprofile";
           }

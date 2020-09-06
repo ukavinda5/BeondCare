@@ -1,0 +1,20 @@
+.shortlistcontainer{
+    height: 100vh;
+    width: 100vw;
+    background-color: aqua;
+}
+.shortlistheader{
+    background-color:blueviolet ;
+    height:20vh;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+}
+.shortlistheader h1{
+    padding-left: 50px;
+   color:aliceblue;
+   font-size: 45px;
+  text-shadow: 2px 2px 3px black;
+
+}

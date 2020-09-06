@@ -28,7 +28,11 @@ public class Provider {
     private String address2;
     private  String role ;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL)
     private List<Job> jobs;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "provider")
+    private List<Payments> payments;
 }

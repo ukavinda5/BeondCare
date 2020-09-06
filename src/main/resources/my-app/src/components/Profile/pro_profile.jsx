@@ -34,13 +34,13 @@ class Pro_profile extends Component {
       <div className="rprofile">
         <nav className="nav">
           <ul>
-            <li>
+            {/* <li>
               <Link to="/search">
                 <div className="nav-item pitem">
                   <i class="fas fa-search"></i>
                 </div>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/#">
                 <div className="nav-item pitem">

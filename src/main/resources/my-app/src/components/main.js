@@ -16,6 +16,9 @@ import R_list from "./admin/p_list";
 import P_list from "./admin/r_list";
 import Job_profile from "./Profile/job_profile";
 import Preview from './preview';
+import Modelapp from './Models/Modalapp';
+import Shortlist from './Profile/ShortList';
+
 
 // import Reg_successful from "./components/Registration/Reg_successful ";
 class Main extends Component { 
@@ -28,6 +31,9 @@ class Main extends Component {
         this.state={
           id:0
         }
+       
+        localStorage.setItem("recieverId",this.state.id)
+        
   }
 
 
@@ -60,7 +66,8 @@ class Main extends Component {
           <Route path="/search" exact component={Search} />
           <Route path="/preview" exact component={Preview} />
           <Route path="/cjob" exact component={() => <Createjob getId={this.getId} id={localStorage.getItem("email")} />} />
-  
+          <Route path="/test" exact component={Modelapp} />
+          <Route path="/shortlist" exact component={Shortlist} />
           {/* <Route path="/regres" ecact component={Reg_successful} /> */}
         {/*}  <Route path="/t" component={FetchHOC('test')(Rec_profile)} /> 
         <Route path="/singup" component={Slider} /> */}
