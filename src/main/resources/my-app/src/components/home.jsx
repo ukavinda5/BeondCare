@@ -20,12 +20,12 @@ class Home extends Component {
           </ul>
         </nav>
         <div className="cont">
-          <p>
+          {/* <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
             laudantium, aperiam ad explicabo veritatis alias! Ab cumque fuga
             expedita impedit eius assumenda, facere possimus qui fugiat
             consequatur, corrupti repellat laboriosam?
-          </p>
+          </p> */}
           <div className="btn1">
             <Link to="about">Learn more</Link>
           </div>

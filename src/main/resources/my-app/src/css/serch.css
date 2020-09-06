@@ -33,18 +33,19 @@
 
     margin: 5vh 5vw;
     height: 20vh;
-    width: 40vw;
-    background-color: rgb(250, 224, 248);
-border: solid 1px blueviolet;
-border-radius: 10px;
+    min-width: 40vw;
+    max-width: 40vw;
+    background-color: rgb(209, 174, 228);
+    box-shadow: 2px 2px 8px rgba(115, 112, 112, 0.802);
+    border-radius: 5px;
 }
 .jimg{
-    flex: 1;
+    flex: 1.2;
     background-color: blueviolet;
     background-image: url(../images/user.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 .jcontent{
     padding: 2vh 2vw;

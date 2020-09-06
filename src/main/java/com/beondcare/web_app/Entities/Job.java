@@ -29,7 +29,12 @@ public @Data class Job {
     @ManyToOne
     @JoinColumn(name = "providerId")
     private Provider provider;
+
     @JsonIgnore
     @OneToMany(mappedBy = "job")
     private List<Shortlist> shortlists;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "job")
+    private Payments payments;
 }

@@ -40,7 +40,7 @@ class Rec_profile extends Component {
               </Link>
             </li>
             <li>
-              <Link to="/#">
+              <Link to="/shortlist">
                 <div className="nav-item">
                   <i class="fas fa-clipboard-list"></i>
                 </div>

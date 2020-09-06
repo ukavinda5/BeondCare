@@ -17,6 +17,7 @@ public class Payments {
     private String subject;
     private String complain;
 
+
     @ManyToOne
     @JoinColumn(name ="provider_id")
     private Provider provider;
@@ -24,4 +25,9 @@ public class Payments {
     @ManyToOne
     @JoinColumn(name="receiver_id")
     private Receiver receiver;
+
+
+    @OneToOne
+    @JoinColumn(name = "job_id")
+    private Job job;
 }

@@ -45,4 +45,9 @@ public class ReceiverController {
     public void delete(Receiver receiver){
         receiverService.delete(receiver);
     }
+
+    @GetMapping("/{id}")
+    public Receiver findByEmail(@PathVariable("id") String email){
+        return receiverService.findByEmail(email);
+    }
 }

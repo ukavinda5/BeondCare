@@ -12,12 +12,14 @@ import Reg_success from "./Registration/reg_success";
 import Admin from "./admin/admin";
 import Search from "./Search/search";
 import Createjob from "./createjob";
-import R_list from "./admin/p_list";
-import P_list from "./admin/r_list";
+import R_list from "./admin/r_list";
+import P_list from "./admin/p_list";
 import Job_profile from "./Profile/job_profile";
 import Preview from './preview';
 import Modelapp from './Models/Modalapp';
 import Shortlist from './Profile/ShortList';
+import Joblist from './Profile/JoblLst';
+import Complainlist from './admin/comlainlist';
 
 
 // import Reg_successful from "./components/Registration/Reg_successful ";
@@ -62,12 +64,14 @@ class Main extends Component {
           <Route path="/reg_success" exact component={Reg_success} />
           <Route path="/admin/**" exact component={Admin} />
           <Route path="/admin/r_list" exact component={R_list} />
-          <Route exact path="/admin/p_list"  component={P_list} />
+          <Route path="/admin/p_list" exact  component={P_list} />
           <Route path="/search" exact component={Search} />
           <Route path="/preview" exact component={Preview} />
           <Route path="/cjob" exact component={() => <Createjob getId={this.getId} id={localStorage.getItem("email")} />} />
           <Route path="/test" exact component={Modelapp} />
           <Route path="/shortlist" exact component={Shortlist} />
+          <Route path="/joblist" exact component={Joblist} />
+          <Route path="/admin/complainlistt" exact component={Complainlist} />
           {/* <Route path="/regres" ecact component={Reg_successful} /> */}
         {/*}  <Route path="/t" component={FetchHOC('test')(Rec_profile)} /> 
         <Route path="/singup" component={Slider} /> */}

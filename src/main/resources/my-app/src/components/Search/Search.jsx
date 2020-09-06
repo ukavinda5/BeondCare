@@ -126,7 +126,7 @@ class Search extends Component {
                         </div>
                         <div className="jbtn">
                         <Link onClick={()=>{localStorage.setItem("jobId",i.id)}} to="/preview" state={i}>
-                          <button className="myButton">Show More</button>
+                          <button >Show More</button>
                         </Link>
                           {/*  */}
                         </div>

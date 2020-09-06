@@ -9,6 +9,7 @@ import Shortlist from './Models/Shortlist';
 class Preview extends Component {
     
      state = {
+         
          subject:null,
          complain:null,
          payid:false,
@@ -69,17 +70,31 @@ class Preview extends Component {
     })}
   
     componentDidMount(){
+
+
+      
+
         
         let job=localStorage.getItem("job");
+        let providerId=""
         this.setState({job:job})
-        console.log(this.state);
         axios.get("/api/job/find/byId/"+localStorage.getItem("jobId"))
       .then((res) =>{
         this.setState(res.data)
-        console.log(res)
         console.log(this.state)
-        
+        providerId=res.data.provider.email
+        axios.get(`api/job/checkExist?receiver_id=${localStorage.getItem("email")}&provider_id=${res.data.provider.email}`)
+        .then(res=>{
+            
+            this.setState(res.data)
+            
+            
+        })
+        .catch(
+            err=> {console.log(err)}
+        )
       })
+      console.log(this.state)
     }
 
 
@@ -116,7 +131,7 @@ class Preview extends Component {
                     
                     <button  onClick={this.setShow} className="nav-item unbtn">Unlock Contact Details</button>
             
-                    <div onClick={this.state.payid&&this.setShowShortlist||this.setShow} className="nav-item ">Short List</div>
+                    <div onClick={this.state.payid&&this.updateShortlistDetails||this.setShow} className="nav-item ">Short List</div>
                     <div onClick={this.state.payid&&this.setShowComplain||this.setShow} className="nav-item ">
                     Complain
                     </div>
@@ -147,16 +162,68 @@ class Preview extends Component {
                 
                 <Modal clickHandler={this.updateContactDetails} show={this.state.show} close={this.closeModalHandler} />
                 <Rating clickHandler={this.updateRatingDetails} show={this.state.showRating} close={this.closeModalHandler} />
-                <Complain clickHandler={this.updateRatingDetails} show={this.state.showComplain} close={this.closeModalHandler} />
-                <Shortlist clickHandler={this.updateRatingDetails} show={this.state.showShortlist} close={this.closeModalHandler} />
+                <Complain clickHandler={this.updateComplainDetails} show={this.state.showComplain} close={this.closeModalHandler} />
+                <Shortlist clickHandler={this.updateShortlistDetails} show={this.state.showShortlist} close={this.closeModalHandler} />
             </div>
          );
     }
 
-    updateRatingDetails=(rating)=>{
+
+    updateShortlistDetails=(Shortlist)=>{
         let r=localStorage.getItem("email");
         let payload={
 
+            job:{
+                id:this.state.id
+            },
+            receiver:{
+                email:r
+            },
+        }
+    axios.post("/api/job/doShortlist",payload)
+       .then(res=>{
+           
+        if(res.data){this.setShowShortlist({showShortlist:true});}
+           }
+).catch(
+           err=> {console.log(err)}
+       )
+    }
+
+
+
+    updateComplainDetails=(subject,complain)=>{
+        let r=localStorage.getItem("email");
+        let payload={
+
+            subject:subject,
+            complain:complain,
+            payid:this.state.payid,
+            provider:{
+                email:this.state.email
+            },
+            receiver:{
+                email:r
+            },
+           ratings:this.state.rating,
+            status:true}
+
+            axios.post("/api/job/doPayment",payload)
+            .then(res=>{
+                if(res.data){this.closeModalHandler({showRating:false,});}
+             })
+             .catch(
+                err=> {console.log(err)}
+            )
+
+        }
+
+
+    updateRatingDetails=(rating)=>{
+        let r=localStorage.getItem("email");
+        let payload={
+            subject:this.state.subject,
+            complain:this.state.complain,
             payid:this.state.payid,
             provider:{
                 email:this.state.email
@@ -169,9 +236,15 @@ class Preview extends Component {
             console.log(payload)
         axios.post("/api/job/doPayment",payload)
        .then(res=>{
-           if(res.data){this.closeModalHandler({showRating:false,});
-           }
-       }).catch(
+           let provider=this.state.provider
+            this.setState(res.data)
+            this.setState({
+                ...this.state,
+                provider:provider
+            })
+           if(res.data){this.closeModalHandler({showRating:false,});}
+        })
+        .catch(
            err=> {console.log(err)}
        )
 
@@ -186,6 +259,9 @@ class Preview extends Component {
             },
             receiver:{
                 email:r
+            },
+            job:{
+                id:this.state.id
             },
             status:true,
 

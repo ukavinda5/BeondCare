@@ -15,4 +15,6 @@ public interface ReceiverService {
     Optional<Receiver> update(Receiver receiver);
 
     void delete(Receiver receiver);
+
+    Receiver findByEmail(String email);
 }

@@ -1,5 +1,6 @@
 package com.beondcare.web_app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ public class Shortlist {
 @GeneratedValue(strategy = GenerationType.AUTO)
 private long sid;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="receiver_id")
     private Receiver receiver;

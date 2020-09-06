@@ -46,4 +46,8 @@ public class ReceiverServiceImpl implements ReceiverService {
         }
     }
 
+    @Override
+    public Receiver findByEmail(String email) {
+        return receiverRepository.findById(email).get();
+    }
 }

@@ -32,30 +32,27 @@ const onCreditCardFocus=(event)=> {
     >
       <div className="modal-header">
         <p>Welcome To Our Site</p>
-        <span onClick={close} className="close-modal-btn">x</span>
+        {/* <span onClick={close} className="close-modal-btn">x</span> */}
       </div>
       <div className="modal-content">
         <div className="modal-body">
-          <h4>Modal</h4>
+          <h4>Unlock just onle for a Rs 2000/-</h4>
 
         
-        <input placeholder="Full Name"></input><br></br><br></br>
-        <input placeholder="Card Number"></input><br></br><br></br>
-        <input placeholder="Expiration Date"></input>
-        <input placeholder="cvv"></input>
+        <input style={{width: "340px"}}
+        className="cardinput" placeholder="Full Name"></input><br></br><br></br>
 
-
-
-
-
-
-
-          <Cleave placeholder="Enter your credit card number"
+        <Cleave style={{width: "340px"}} className="cardinput"
+          placeholder="credit card number"
                 options={{creditCard: true}}
                 onFocus={onCreditCardFocus}
-                onChange={onCreditCardChange} /> 
+                onChange={onCreditCardChange} /> <br></br><br></br>
+       
+        <span><i class="fab fa-2x fa-cc-visa"></i> <input style={{width: "60px",margin:"0px 50px"}} className="cardinput" placeholder="Expiration Date"></input>
+        <input style={{width: "50px"}} className="cardinput" placeholder="cvv"></input></span>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, placeat aliquam? Nostrum vero fugiat rem, itaque molestias ipsa quae facilis.</p>
+
+        
         </div>
         <div className="modal-footer">
           <button onClick={close} className="nav-item">Close</button>

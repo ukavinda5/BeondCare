@@ -1,7 +1,8 @@
 .admin {
-  width: 100vw;
+  max-width:100vw;
   height: 100vh;
   display: flex;
+  background-color: aquamarine;
 }
 .anav {
   height: 100%;
@@ -21,7 +22,7 @@
   color: aliceblue;
   width: 100%;
   height: 10vh;
-  background-color: blueviolet;
+  background-color: #8a2be2;
   margin-bottom: 30px;
 }
 .nav-itm:hover {
@@ -31,13 +32,19 @@
 
 /* --------R_list--------------------- */
 .admin_container {
-  width: 100%;
+  width: 80%;
   height: 100%;
+  position: relative;
+  background-color: blueviolet;
 }
 .r_list {
-  width: 100%;
-  height: 100%;
-  background-color: aquamarine;
+  width: 80%;
+  height: 100vh;
+  margin-left: 20%;
+  background-color: rgb(235, 217, 243);
+  left:0px;
+  top:0px;
+  position: absolute;
 }
 
 /* -----------p_list---------------------- */
@@ -138,23 +145,77 @@
 }
 
 /* ------------table-------------- */
-.order_table {
-  padding: 10px;
-  color: rgb(0, 0, 0);
-  border-bottom: solid 1px white;
-  width: 100%;
-  height: 100%;
-  /* background-color: rgba(127, 255, 212, 0.301); */
-}
-.order_table td {
+
+
+.adminheder{
+  height: 7.5vh;
+  background-color: #5e1c9b;
   text-align: center;
-  border-bottom: solid 1px rgb(0, 0, 0);
 }
-.order_table th {
-  text-align: center;
-  border-bottom: solid 2px blueviolet;
+.adminheder lable{
+
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 35px;
+  text-shadow: 2px 2px 3px black;
+  
 }
 
-.order_table tr :hover {
-  background-color: white;
+/* ........................................................... */
+table.DTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.DTable td, table.DTable th {
+  border: 1px solid #AAAAAA;
+  padding: 4px 2px;
+}
+table.DTable tr :hover {
+background-color: white;
+                          }
+table.DTable tbody td {
+  text-align: center;
+  font-size: 13px;
+}
+table.DTable tr:nth-child(even) {
+  background: #DCC8E2;
+}
+table.DTable th {
+  text-align: center;
+  background: #8A2BE2;
+  color: #FFFFFF;
+}
+table.DTable thead th {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 3px solid #CAA8E2;
+}
+table.DTable thead th:first-child {
+  border-left: none;
+}
+
+table.DTable tfoot td {
+  font-size: 14px;
+}
+table.DTable tfoot .links {
+  text-align: right;
+}
+table.DTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.box{
+  height: 100px;
+  width: 200px;
+background-color: #FFFFFF;
+border-radius: 5px;
 }

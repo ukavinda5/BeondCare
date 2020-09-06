@@ -51,6 +51,10 @@
   }
   
   .modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 1rem;
   }
   
@@ -60,6 +64,7 @@
   }
   
   .modal-body p {
+    
     font-size: 1rem;
     background: #eee;
     color: #333;
@@ -89,4 +94,13 @@
     position: fixed;
     transition: all 1.3s;
     width: 100%;
+  }
+  .cardinput{
+    
+    padding :5px;
+    background-color:rgb(228, 226, 226);
+    box-shadow: 0.5px 0.5px 5px rgba(218, 217, 217, 0.898);
+    border:none;
+    
+    outline:none;
   }

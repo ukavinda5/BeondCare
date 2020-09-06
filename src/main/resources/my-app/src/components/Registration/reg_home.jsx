@@ -8,7 +8,7 @@ class Reg_home extends Component {
           <ul>
             <li>
               <Link to="/">
-                <div className="nav-item">Home</div>
+                <div className="nav-item jk">Home</div>
               </Link>
             </li>
             <li>

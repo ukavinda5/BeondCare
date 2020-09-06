@@ -29,6 +29,30 @@ class Pro_profile extends Component {
 
   }
 
+  uploadDp=(dp)=>{
+    const data= new FormData()
+    data.append('dp', dp)
+    // const json = JSON.stringify({""});
+    // const blob = new Blob([json], {
+    // type: 'application/json'
+    // });
+    data.append("userId",JSON.stringify("ukavinda@gmail.com"))
+
+    axios
+      .post("/api/user/uploadDp", data,{headers: {
+        'Content-Type': 'application/json',
+        'enctype' : 'application/json'
+      }})
+      .then(response => {
+        console.log(response.data);;
+      })
+      .catch(err => {
+        const errors = err.message;
+        console.log(errors);
+      })
+  
+  }
+
   render() {
     return (
       <div className="rprofile">
@@ -42,7 +66,7 @@ class Pro_profile extends Component {
               </Link>
             </li> */}
             <li>
-              <Link to="/#">
+              <Link to="/joblist">
                 <div className="nav-item pitem">
                   <i class="fas fa-clipboard-list"></i>
                 </div>
@@ -71,6 +95,7 @@ class Pro_profile extends Component {
         <div className="profile_con">
           <div className="profil_pic">
             <img src={user} />
+            <input onChange={(e)=>this.uploadDp(e.target.files[0])} type="file" id="img" name="img" accept="image/*"></input>
             <label className="rpd">{this.state.name}</label>
           </div>
           <div className="rabout">

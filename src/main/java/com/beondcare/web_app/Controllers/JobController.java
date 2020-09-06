@@ -67,4 +67,12 @@ public class JobController {
         return  shortlistService.dShortlist(shortlist);
     }
 
+
+
+    @GetMapping("/checkExist")
+    @ResponseBody
+    public Payments checkExist (@RequestParam("receiver_id") String r_id,@RequestParam("provider_id") String p_id){
+        return  paymentService.checkExists(p_id,r_id).get();
+    }
+
 }

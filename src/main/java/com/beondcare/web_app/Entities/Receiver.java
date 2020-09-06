@@ -26,7 +26,7 @@ public class Receiver {
     @OneToMany(mappedBy = "receiver")
     private List<Payments> payments;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "receiver")
     private List<Shortlist> shortlists;
 }

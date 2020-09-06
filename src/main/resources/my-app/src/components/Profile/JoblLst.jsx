@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-class Shortlist extends Component {
+class Joblist extends Component {
     state = {  }
 
     componentDidMount(){
         
-
 
     }
 
@@ -14,7 +13,7 @@ class Shortlist extends Component {
         return ( 
             <div className="shortlistcontainer">
 
-        <div className="shortlistheader"><h1>SHORTLIST</h1></div>
+        <div className="shortlistheader"><h1>JOB LIST</h1></div>
         <div className="shortlistbody">
 
         <div className="jobadd">
@@ -26,7 +25,6 @@ class Shortlist extends Component {
                         </div>
                         <div className="jbtn">
                         {/* <Link onClick={()=>{localStorage.setItem("jobId",i.id)}} to="/preview" state={i}> */}
-                          <button >Show More</button>
                           <button>Remove</button>
                         {/* </Link> */}
                           {/*  */}
@@ -42,4 +40,4 @@ class Shortlist extends Component {
     }
 }
  
-export default Shortlist;
+export default Joblist;
