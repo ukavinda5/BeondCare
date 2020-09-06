@@ -7,6 +7,7 @@ import {
   useHistory,
   
 } from "react-router-dom";
+import Modal from "./Models/Modal";
 class Createjob extends Component {
   constructor(props) {
     super(props);
@@ -23,8 +24,16 @@ class Createjob extends Component {
       ex2: null,
       ex3: null,
       ex4: null,
+      show:false,
     };
   }
+
+  closeModalHandler = () => {
+    this.setState({
+        ...this.state,
+        show:false})}
+
+
   componentDidMount(){
   
     this.setState({email:this.props.id});
@@ -73,7 +82,37 @@ class Createjob extends Component {
           alert("Invnalid credentials !")
         }
       })
-  };
+      
+      let payload={
+        type:2,
+        provider:{
+
+            email:this.state.email
+        },
+        receiver:{
+            email:this.state.email
+        },
+        status:true}
+        console.log(payload)
+
+
+      axios.post("/api/job/doPayment",payload)
+       .then(res=>{
+           let provider=this.state.provider
+            this.setState(res.data)
+            this.setState({
+                ...this.state,
+                provider:provider
+            })
+           if(res.data){this.closeModalHandler({showRating:false,});}
+        })
+        .catch(
+           err=> {console.log(err)}
+       )
+  
+  
+  
+    };
   render() {
     return (
       <div className="cjob">
@@ -207,12 +246,13 @@ class Createjob extends Component {
               <div className="login_btn">Back</div>
             </Link>
             <Link>
-              <div className="login_btn" onClick={this.submitHaddel}>
+              <div className="login_btn" onClick={this.submitHaddel, this.setShow;}>
                 Pay & Submit
               </div>
             </Link>
           </div>
         </div>
+        <Modal clickHandler={this.updateContactDetails} show={this.state.show} close={this.closeModalHandler} />
       </div>
     );
   }

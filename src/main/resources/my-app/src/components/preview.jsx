@@ -267,7 +267,9 @@ class Preview extends Component {
 
             subject:this.state.subject,
          
-            complain:this.state.complain
+            complain:this.state.complain,
+
+            type:1
         }
        axios.post("/api/job/doPayment",payload)
        .then(res=>{

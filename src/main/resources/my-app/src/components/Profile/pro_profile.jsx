@@ -16,6 +16,29 @@ class Pro_profile extends Component {
     }
 
     axios
+      .get("/api/user/getDp/ukavinda@gmail.com")
+      .then((a) => {
+        alert("a")
+        
+        console.log(a.data);    
+        let reader = new FileReader();
+        let url=reader.readAsDataURL(a.data)
+        alert("b")
+        
+        alert(url)
+      })
+      .then(blob=>{
+        
+      })
+      .catch((err) => {
+
+        alert("err")
+        console.log(err);
+      });
+      
+    this.setState({id:""})
+
+    axios
       .get("/api/provider/find/byemail/"+this.props.id)
       .then((a) => {
         this.setState(a.data);

@@ -6,6 +6,10 @@ import com.beondcare.web_app.Services.UserServiceimpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -46,6 +50,16 @@ public class LogController {
             }
 
             userService.uploadDp(userEmail,dp);
+        }
+
+        @GetMapping("/getDp/{email}")
+        public ResponseEntity getDp(@PathVariable String email){
+            User user=userService.findUser(email).get();
+            UserDp dp=user.getUserDp();
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType(dp.getFileType()))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + dp.getFileName() + "\"")
+                    .body(new ByteArrayResource(dp.getData()));
         }
     }
 //}

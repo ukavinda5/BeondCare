@@ -16,6 +16,7 @@ public class Payments {
     private int ratings;
     private String subject;
     private String complain;
+    private int type;
 
 
     @ManyToOne
