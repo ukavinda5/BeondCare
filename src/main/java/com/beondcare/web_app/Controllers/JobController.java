@@ -5,8 +5,13 @@ import com.beondcare.web_app.Entities.Payments;
 import com.beondcare.web_app.Entities.Shortlist;
 import com.beondcare.web_app.Services.JobService;
 import com.beondcare.web_app.Services.PaymentService;
+import com.beondcare.web_app.Services.ReportService;
 import com.beondcare.web_app.Services.ShortlistService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.ObjectStreamClass;
@@ -24,6 +29,10 @@ public class JobController {
     PaymentService paymentService;
     @Autowired
     ShortlistService shortlistService;
+
+    @Autowired
+    ReportService reportService;
+
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public Job save(@RequestBody Job job) {
@@ -62,9 +71,25 @@ public class JobController {
         return  paymentService.dPayments(payments);
     }
 
+
+
     @PostMapping("/doShortlist")
     public Shortlist doShortlist(@RequestBody Shortlist shortlist){
         return  shortlistService.dShortlist(shortlist);
+    }
+
+    @RequestMapping(value = "/getReport", method = RequestMethod.GET)
+    public ResponseEntity reportService(){
+        try {
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType("application/pdf"))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + "report.pdf" + "\"")
+                    .body(reportService.generateReportData());
+
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
 

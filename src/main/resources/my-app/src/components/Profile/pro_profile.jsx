@@ -10,7 +10,7 @@ class Pro_profile extends Component {
   }
   
   componentDidMount(){
-    
+    let dpUrl=""
     if(this.props.id==="null"){
       window.location="/login"
     }
@@ -18,21 +18,23 @@ class Pro_profile extends Component {
     axios
       .get("/api/user/getDp/ukavinda@gmail.com")
       .then((a) => {
-        alert("a")
-        
-        console.log(a.data);    
+        let blob = new Blob([a.data], {type: 'image/jpeg'});
+        dpUrl=URL.createObjectURL(blob);
         let reader = new FileReader();
-        let url=reader.readAsDataURL(a.data)
-        alert("b")
-        
-        alert(url)
-      })
-      .then(blob=>{
+        reader.readAsDataURL(blob);
+        reader.onload = function() {
+          dpUrl=reader.result;
+          
+          console.log(reader.result)
+        };
+        alert(dpUrl)
+        this.setState({
+          id:"",
+          dpUrl:reader.result
+        })
         
       })
       .catch((err) => {
-
-        alert("err")
         console.log(err);
       });
       
@@ -48,8 +50,11 @@ class Pro_profile extends Component {
         console.log(err);
       });
       
-    this.setState({id:""})
-
+    this.setState({
+      id:"",
+      dpUrl:dpUrl
+    })
+    console.log(this.state.dpUrl);
   }
 
   uploadDp=(dp)=>{
@@ -88,7 +93,7 @@ class Pro_profile extends Component {
                 </div>
               </Link>
             </li> */}
-            <li>
+            {/* <li>
               <Link to="/joblist">
                 <div className="nav-item pitem">
                   <i class="fas fa-clipboard-list"></i>
@@ -102,7 +107,7 @@ class Pro_profile extends Component {
                   <i class="far fa-bell"></i>
                 </div>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/cjob">
                 <div className="nav-item pitem"><i class="fa fa-plus" aria-hidden="true"></i>Make a Job Request </div>
@@ -117,8 +122,8 @@ class Pro_profile extends Component {
         </nav>
         <div className="profile_con">
           <div className="profil_pic">
-            <img src={user} />
-            <input onChange={(e)=>this.uploadDp(e.target.files[0])} type="file" id="img" name="img" accept="image/*"></input>
+            <img src={this.state.dpUrl} />
+            {/* <input onChange={(e)=>this.uploadDp(e.target.files[0])} type="file" id="img" name="img" accept="image/*"></input> */}
             <label className="rpd">{this.state.name}</label>
           </div>
           <div className="rabout">

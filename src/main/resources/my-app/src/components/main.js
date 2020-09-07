@@ -20,6 +20,7 @@ import Modelapp from './Models/Modalapp';
 import Shortlist from './Profile/ShortList';
 import Joblist from './Profile/JoblLst';
 import Complainlist from './admin/comlainlist';
+import Income from './admin/Income';
 
 
 // import Reg_successful from "./components/Registration/Reg_successful ";
@@ -72,6 +73,7 @@ class Main extends Component {
           <Route path="/shortlist" exact component={Shortlist} />
           <Route path="/joblist" exact component={Joblist} />
           <Route path="/admin/complainlistt" exact component={Complainlist} />
+          <Route path="/admin/income" exact component={Income} />
           {/* <Route path="/regres" ecact component={Reg_successful} /> */}
         {/*}  <Route path="/t" component={FetchHOC('test')(Rec_profile)} /> 
         <Route path="/singup" component={Slider} /> */}

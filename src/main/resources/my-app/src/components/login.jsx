@@ -4,6 +4,7 @@ import { Link,useHistory, Router, Route} from "react-router-dom";
 import axios from "axios";
 import Rec_profile from "./Profile/rec_profile";
 import { callback } from "./Search/ggg/action";
+
 class Login extends Component {
   constructor(props){
   
@@ -33,6 +34,9 @@ class Login extends Component {
           }
           if(res.data.role==="1"){
             window.location = "/rprofile";
+          }
+          if(res.data.role==="3"){
+            window.location = "/admin/";
           }
 
         }else{

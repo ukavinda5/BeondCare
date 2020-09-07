@@ -55,6 +55,40 @@ class Createjob extends Component {
     console.log(this.state);
     axios.post("/api/job/save",this.state)
     .then(res =>{
+
+
+
+      this.setState({
+        ...this.state,
+        show:true
+    })
+      let payload={
+        type:2,
+        provider:{
+
+            email:this.state.email
+        },
+        receiver:{
+            email:this.state.email
+        },
+        status:true}
+        console.log(payload)
+
+
+      axios.post("/api/job/doPayment",payload)
+       .then(res=>{
+           let provider=this.state.provider
+            this.setState(res.data)
+            this.setState({
+                ...this.state,
+                provider:provider
+            })
+           if(res.data){this.closeModalHandler({showRating:false,});}
+        })
+        .catch(
+           err=> {console.log(err)}
+       )
+
       
       localStorage.setItem("user_type","provider");
       // window.location="www.ggle.com"
@@ -83,32 +117,6 @@ class Createjob extends Component {
         }
       })
       
-      let payload={
-        type:2,
-        provider:{
-
-            email:this.state.email
-        },
-        receiver:{
-            email:this.state.email
-        },
-        status:true}
-        console.log(payload)
-
-
-      axios.post("/api/job/doPayment",payload)
-       .then(res=>{
-           let provider=this.state.provider
-            this.setState(res.data)
-            this.setState({
-                ...this.state,
-                provider:provider
-            })
-           if(res.data){this.closeModalHandler({showRating:false,});}
-        })
-        .catch(
-           err=> {console.log(err)}
-       )
   
   
   
@@ -246,7 +254,7 @@ class Createjob extends Component {
               <div className="login_btn">Back</div>
             </Link>
             <Link>
-              <div className="login_btn" onClick={this.submitHaddel, this.setShow;}>
+              <div className="login_btn" onClick={this.submitHaddel}>
                 Pay & Submit
               </div>
             </Link>

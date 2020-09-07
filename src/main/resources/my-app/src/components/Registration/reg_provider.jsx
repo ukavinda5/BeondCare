@@ -7,7 +7,7 @@ class Reg_provider extends Component {
     super(props);
 
     this.state = {
-      name: null,
+      name1: null,
       name2:null,
       email: null,
       location: null,
@@ -91,7 +91,7 @@ class Reg_provider extends Component {
                 type="text"
                 placeholder="First Name"
                 name="name"
-                value={this.setState.name}
+                value={this.setState.name1}
                 onChange={this.onChange}
               ></input>
             </label>

@@ -31,8 +31,13 @@ class Admin extends Component {
               </Link>
             </li>
             <li>
-              <Link to="#">
+              <Link to="/admin/income">
                 <div className="nav-itm">Income</div>
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                <div className="nav-itm">Log Out</div>
               </Link>
             </li>
           </ul>
@@ -40,12 +45,24 @@ class Admin extends Component {
         <div className="admin_container">
             <div className="adminheder">
               <lable>DASHBOARD</lable>
-              <div className="box">
+              <div className="boxs">
+                <div className="box">
                 
+                </div>
+
+                <div className="box">
+                
+                </div>
+
+                <div className="box">
+                
+                </div>
+
               </div>
             </div>
+          </div>
         </div>
-      </div>
+      
   );
     }
 }
